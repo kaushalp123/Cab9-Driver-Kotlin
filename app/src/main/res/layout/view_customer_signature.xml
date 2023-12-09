@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.cab9.driver.ui.booking.detail.BookingDetailViewModel" />
+
+        <variable
+            name="listener"
+            type="com.cab9.driver.ui.booking.detail.BookingDetailScreenClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/CardStyle.Cab9Driver.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_view_padding">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_customer_sig_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:text="@string/label_customer_signature"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_vlarge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_add_signature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/signature_margin"
+                android:contentDescription="@null"
+                android:onClick="@{()->listener.takeSignature()}"
+                android:visibility="@{viewModel.addCustomerSigVisibility}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lbl_customer_sig_header"
+                app:srcCompat="@drawable/ic_baseline_add_24" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_add_signature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_margin_half"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/action_add_signature"
+                android:visibility="@{viewModel.addCustomerSigVisibility}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fab_add_signature" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_passenger_signature"
+                imageUrl="@{viewModel.customerSigUrl}"
+                android:layout_width="@dimen/signature_size"
+                android:layout_height="@dimen/signature_size"
+                android:layout_marginTop="@dimen/signature_margin"
+                android:contentDescription="@null"
+                android:visibility="@{viewModel.customerSigVisibility}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lbl_customer_sig_header"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.RoundedCorner" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_signature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="lbl_add_signature,img_passenger_signature" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/signature_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrier_signature" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

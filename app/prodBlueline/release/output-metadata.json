@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.blueline.android.appdriver",
+  "variantName": "prodBluelineRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 701400,
+      "versionName": "7.1.4",
+      "outputFile": "prodBlueline_release_v701400_7.1.4_2023-09-26-12-42.apk"
+    }
+  ],
+  "elementType": "File"
+}

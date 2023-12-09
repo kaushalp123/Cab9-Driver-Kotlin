@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/common_margin">
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/SFProMediumFontStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/label_checking_all_settings"
+        android:textColor="@color/text_color_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/SFProRegularFontStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/label_checking_settings_summary"
+        android:textColor="@color/text_color_2" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_2x"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pBar_internet_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                app:indicatorColor="@color/indicator_color_pBar"
+                app:trackColor="@color/track_color_pBar"
+                app:trackThickness="20dp"
+                tools:progress="70" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/baseline_wifi_24"
+                app:tint="@color/icon_tint_common" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_internet_settings_title"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_network_settings"
+                android:textColor="@color/text_color_1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_internet_status"
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="gone"
+                tools:text="@string/label_connected" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pBar_notification_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                app:indicatorColor="@color/indicator_color_pBar"
+                app:trackColor="@color/track_color_pBar"
+                app:trackThickness="20dp"
+                tools:progress="70" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/baseline_notification_settings_24"
+                app:tint="@color/icon_tint_common" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lblNotificationCheckTitle"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_notification_settings"
+                android:textColor="@color/text_color_1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_notification_status"
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="gone"
+                tools:text="Enabled" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pBar_sound_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                app:indicatorColor="@color/indicator_color_pBar"
+                app:trackColor="@color/track_color_pBar"
+                app:trackThickness="20dp"
+                tools:progress="70" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/baseline_volume_up_24"
+                app:tint="@color/icon_tint_common" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_sound_settings_title"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_sound_settings"
+                android:textColor="@color/text_color_1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_sound_status"
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="gone"
+                tools:text="Volume is high" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pBar_battery_optimise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                app:indicatorColor="@color/indicator_color_pBar"
+                app:trackColor="@color/track_color_pBar"
+                app:trackThickness="20dp"
+                tools:progress="70" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/baseline_battery_charging_full_24"
+                app:tint="@color/icon_tint_common" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_battery_optimise_title"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_battery_optimisation"
+                android:textColor="@color/text_color_1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_battery_optimise_status"
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="gone"
+                tools:text="Enabled" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pBar_draw_overlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                app:indicatorColor="@color/indicator_color_pBar"
+                app:trackColor="@color/track_color_pBar"
+                app:trackThickness="20dp"
+                tools:progress="70" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/baseline_perm_device_information_24"
+                app:tint="@color/icon_tint_common" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_draw_overlay_title"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_draw_overlay"
+                android:textColor="@color/text_color_1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_draw_overlay_status"
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="gone"
+                tools:text="Enabled" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/pBar_send_test_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                app:indicatorColor="@color/indicator_color_pBar"
+                app:trackColor="@color/track_color_pBar"
+                app:trackThickness="20dp"
+                tools:progress="70" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/baseline_notifications_active_24"
+                app:tint="@color/icon_tint_common" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_send_test_notification_title"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_sending_test_notification"
+                android:textColor="@color/text_color_1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_send_test_notification_status"
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="gone"
+                tools:text="Connected" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

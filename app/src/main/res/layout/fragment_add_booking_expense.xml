@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.cab9.driver.widgets.ReactiveLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/common_margin"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="@string/v_tag_complete">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_expense_type"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/color_box_outline"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/auto_txt_expense_types"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:hint="@string/hint_select_expense_type"
+                        android:inputType="none"
+                        android:textColor="@color/text_color_1"
+                        android:textColorHint="@color/text_color_1" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/lbl_add_expense_amount_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_margin_2x"
+                    android:text="@string/label_offer"
+                    android:textColor="@color/text_color_1"
+                    app:fontFamily="@font/sf_pro_display_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_expense_type" />
+
+                <EditText
+                    android:id="@+id/txt_booking_expense_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_view_padding"
+                    android:background="@drawable/bg_rounded_corner_border_8dp"
+                    android:gravity="center"
+                    android:hint="@string/hint_min_amount"
+                    android:inputType="numberDecimal"
+                    android:minWidth="100dp"
+                    android:padding="@dimen/common_view_padding"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="50sp"
+                    app:fontFamily="@font/sf_pro_display_bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lbl_add_expense_amount_header" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/lbl_add_expense_note_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_margin_2x"
+                    android:gravity="center"
+                    android:text="@string/msg_expense_approval"
+                    android:textColor="@color/text_color_3"
+                    app:fontFamily="@font/sf_pro_display_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_booking_expense_amount" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_view_padding"
+                    android:hint="@string/hint_notes"
+                    app:boxStrokeColor="@color/color_box_outline"
+                    app:helperText="Optional"
+                    app:helperTextTextColor="@color/text_color_3"
+                    app:hintTextColor="@color/text_color_3"
+                    app:layout_constraintTop_toBottomOf="@id/lbl_add_expense_note_header">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt_booking_expense_note"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sf_pro_display_regular"
+                        android:gravity="top|start"
+                        android:lines="4" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cancel_expense_add"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginEnd="@dimen/common_margin_half"
+                android:layout_weight="1"
+                android:text="@string/action_cancel"
+                app:cornerRadius="@dimen/corner_radius" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_confirm_expense"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginStart="@dimen/common_margin_half"
+                android:layout_weight="1"
+                android:text="@string/action_apply"
+                app:cornerRadius="@dimen/corner_radius" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.cab9.driver.widgets.ReactiveLayout>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_online_timer"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/online_timer_bg"
+        app:cardElevation="@dimen/common_elevation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lblOnlineTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/common_view_padding"
+                android:gravity="center_vertical"
+                android:padding="@dimen/common_view_padding"
+                android:text="@string/label_default_timer_text"
+                android:textAppearance="@style/SFProMediumFontStyle"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_regular"
+                app:drawableStartCompat="@drawable/ic_baseline_status_18"
+                app:drawableTint="@color/color_online_status"
+                tools:text="09:00:00" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progress_bar_mobile_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_user_avatar"
+        android:layout_width="@dimen/avatar_size"
+        android:layout_height="@dimen/avatar_size"
+        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin"
+        android:background="?selectableItemBackground"
+        android:elevation="@dimen/common_elevation"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_circular_avatar_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_start_shift"
+        android:layout_width="@dimen/btn_start_shift_size"
+        android:layout_height="@dimen/btn_start_shift_size"
+        android:layout_marginBottom="@dimen/common_margin"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:padding="0dp"
+        android:text="@string/action_start"
+        android:textSize="@dimen/text_size_vlarge"
+        android:visibility="gone"
+        app:elevation="@dimen/common_elevation"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_flag_down"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular"
+        tools:visibility="visible" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_flag_down"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginBottom="@dimen/common_margin"
+        android:text="@string/action_flag_down"
+        android:visibility="gone"
+        app:cornerRadius="25dp"
+        app:elevation="@dimen/common_elevation"
+        app:layout_constraintBottom_toTopOf="@id/job_in_progress_banner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="gone" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/job_in_progress_banner"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/bg_tint_job_in_progress"
+        android:drawablePadding="@dimen/common_margin"
+        android:elevation="@dimen/common_elevation"
+        android:gravity="center_vertical"
+        android:padding="@dimen/common_margin"
+        android:text="@string/label_job_in_progress"
+        android:textAppearance="@style/SFProRegularFontStyle"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_size_vlarge"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_baseline_keyboard_arrow_up_24"
+        app:drawableTint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_toggle_zonal_overview"
+        android:layout_width="@dimen/zonal_btn_size"
+        android:layout_height="@dimen/zonal_btn_size"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin"
+        android:background="@drawable/bg_circular"
+        android:elevation="@dimen/common_elevation"
+        android:padding="@dimen/common_view_padding"
+        android:src="@drawable/ic_baseline_zone_rank_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/brand_color" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_current_location"
+        android:layout_width="@dimen/zonal_btn_size"
+        android:layout_height="@dimen/zonal_btn_size"
+        android:layout_marginEnd="@dimen/common_margin"
+        android:layout_marginBottom="@dimen/common_margin"
+        android:background="@drawable/bg_circular"
+        android:elevation="@dimen/common_elevation"
+        android:foreground="?selectableItemBackground"
+        android:padding="13dp"
+        android:src="@drawable/ic_baseline_my_location_24"
+        app:layout_constraintBottom_toTopOf="@id/job_in_progress_banner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/brand_color" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_toggle_heat_map"
+        android:layout_width="@dimen/zonal_btn_size"
+        android:layout_height="@dimen/zonal_btn_size"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginBottom="@dimen/common_margin"
+        android:background="@drawable/bg_circular"
+        android:elevation="@dimen/common_elevation"
+        android:foreground="?selectableItemBackground"
+        android:padding="10dp"
+        android:src="@drawable/ic_baseline_heat_map_24"
+        app:layout_constraintBottom_toTopOf="@id/job_in_progress_banner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/brand_color" />
+
+    <include
+        android:id="@+id/view_zonal_overview"
+        layout="@layout/view_zonal_overview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_user_avatar" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_heatmap_interval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_margin_half"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="btn_start_shift,btn_flag_down,img_current_location,img_toggle_heat_map" />
+
+    <include
+        android:id="@+id/view_heatmap_interval"
+        layout="@layout/view_heatmap_interval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:layout_marginBottom="@dimen/common_margin"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/barrier_heatmap_interval"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

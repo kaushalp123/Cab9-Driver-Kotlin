@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Material3.CardView.Elevated"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/common_corner_radius"
+    app:cardElevation="@dimen/common_elevation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:divider="@drawable/vertical_divider"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_interval_15_mins"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_heatmap_interval"
+                android:gravity="center"
+                android:paddingVertical="@dimen/common_margin_half"
+                android:text="@string/interval_15_mins"
+                android:textColor="@color/text_color_heatmap_interval"
+                android:textSize="@dimen/text_size_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_interval_30_mins"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_heatmap_interval"
+                android:gravity="center"
+                android:paddingVertical="@dimen/common_margin_half"
+                android:text="@string/internal_30_mins"
+                android:textColor="@color/text_color_heatmap_interval"
+                android:textSize="@dimen/text_size_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_interval_60_mins"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_heatmap_interval"
+                android:gravity="center"
+                android:paddingVertical="@dimen/common_margin_half"
+                android:text="@string/interval_1_hour"
+                android:textColor="@color/text_color_heatmap_interval"
+                android:textSize="@dimen/text_size_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_interval_120_mins"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_heatmap_interval"
+                android:gravity="center"
+                android:paddingVertical="@dimen/common_margin_half"
+                android:text="@string/interval_2_hour"
+                android:textColor="@color/text_color_heatmap_interval"
+                android:textSize="@dimen/text_size_small" />
+
+        </LinearLayout>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pBar_heatmap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

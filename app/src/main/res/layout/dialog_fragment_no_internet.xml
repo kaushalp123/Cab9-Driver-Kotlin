@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/common_margin">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_no_internet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        app:layout_constraintDimensionRatio="4:3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_undraw_server_down" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_no_internet_title"
+        style="@style/SFProSemiBoldFontStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_half"
+        android:gravity="center"
+        android:text="@string/err_title_no_internet"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_no_internet" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_no_internet_msg"
+        style="@style/SFProRegularFontStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_half"
+        android:gravity="center"
+        android:text="@string/err_msg_no_internet"
+        android:textColor="@color/text_color_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_no_internet_title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_settings_internet"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_no_internet_msg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

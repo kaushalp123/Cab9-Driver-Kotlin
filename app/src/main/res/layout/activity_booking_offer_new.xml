@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.cab9.driver.utils.StringUtils" />
+
+        <variable
+            name="listener"
+            type="com.cab9.driver.ui.booking.offers.BookingOfferScreenClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.cab9.driver.ui.booking.offers.BookingOfferViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_offer_timer"
+        android:keepScreenOn="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/lbl_booking_offer_timer"
+                    style="@style/SFProBoldFontStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@{viewModel.timerCounter}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_offer_timer"
+                    tools:text="00:34" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_booking_offer_accepted"
+                    android:layout_width="@dimen/icon_size_large"
+                    android:layout_height="@dimen/icon_size_large"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_check_circle_24"
+                    android:visibility="gone"
+                    app:tint="@color/white" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_offer_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bottom_sheet_rounded_corner"
+                android:orientation="vertical"
+                android:padding="@dimen/common_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img_booking_offer_source"
+                        android:layout_width="@dimen/icon_size_regular"
+                        android:layout_height="@dimen/icon_size_regular"
+                        android:layout_marginEnd="@dimen/common_view_padding_half"
+                        android:src="@drawable/baseline_notifications_24"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/SFProBoldFontStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/label_offer"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/text_size_xlarge" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/common_margin_half"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/lbl_booking_offer_type"
+                            style="@style/SFProBoldFontStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded_corner_4dp"
+                            android:backgroundTint="@color/bg_offer_reject"
+                            android:ellipsize="end"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="2dp"
+                            android:text="@{viewModel.offerType}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_vlarge"
+                            android:visibility="@{viewModel.offerTypeVisibility}"
+                            tools:text="@tools:sample/lorem" />
+
+                    </FrameLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/lbl_booking_offer_time"
+                        style="@style/SFProSemiBoldFontStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@{viewModel.bookingTime}"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/text_size_large"
+                        tools:text="10:12" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_margin"
+                    android:background="@drawable/bg_rounded_corner_8dp"
+                    android:backgroundTint="@color/bg_offer_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/common_view_padding">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_size_regular"
+                        android:layout_height="@dimen/icon_size_regular"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_baseline_car_24"
+                        app:tint="@color/icon_tint_common" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/lbl_booking_offer_vehicle_type"
+                        style="@style/SFProBoldFontStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/common_view_padding"
+                        android:layout_weight="1"
+                        android:text="@{viewModel.vehicleType}"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/text_size_vlarge"
+                        tools:text="V Class" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/SFProBoldFontStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.bookingCommission}"
+                            android:textColor="@color/text_color_1"
+                            android:textSize="@dimen/text_size_xlarge"
+                            android:visibility="@{StringUtils.isNullOrEmpty(viewModel.bookingCommission) ? View.GONE : View.VISIBLE}"
+                            tools:text="$20.89" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextStyle.Cab9Driver.OfferLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:text="@{viewModel.paymentMethod}"
+                            android:visibility="@{StringUtils.isNullOrEmpty(viewModel.paymentMethod) ? View.GONE : View.VISIBLE}"
+                            tools:text="Cash" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/common_margin">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/lbl_booking_offer_no_address"
+                        style="@style/TextStyle.Cab9Driver.OfferAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_rounded_corner_8dp"
+                        android:backgroundTint="@color/bg_offer_card"
+                        android:gravity="center"
+                        android:padding="@dimen/common_view_padding"
+                        android:text="@string/label_new_offer_alert"
+                        android:visibility="@{viewModel.showPickupAddress ? View.GONE : View.VISIBLE}"
+                        tools:visibility="gone" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!--BEGIN: Pickup address views-->
+
+                        <View
+                            android:id="@+id/v_booking_offer_pickup_bg"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/bg_rounded_corner_8dp"
+                            android:backgroundTint="@color/bg_offer_card"
+                            app:layout_constraintBottom_toBottomOf="@id/space_bottom_booking_offer_pickup"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/space_top_booking_offer_pickup" />
+
+                        <Space
+                            android:id="@+id/space_top_booking_offer_pickup"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/common_view_padding"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_booking_offer_pickup_eta"
+                            style="@style/TextStyle.Cab9Driver.OfferLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/common_view_padding"
+                            android:text="@{viewModel.pickupLabel}"
+                            app:layout_constraintStart_toEndOf="@id/img_booking_offer_pickup"
+                            app:layout_constraintTop_toBottomOf="@id/space_top_booking_offer_pickup"
+                            tools:text="6 mins away" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_booking_offer_pickup_distance"
+                            style="@style/TextStyle.Cab9Driver.OfferLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/common_view_padding"
+                            android:text="@{viewModel.pickupDistance}"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_booking_offer_pickup_eta"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_booking_offer_pickup_eta"
+                            tools:text="5 mi trip" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_booking_offer_pickup_address"
+                            style="@style/TextStyle.Cab9Driver.OfferAddress"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/common_view_padding"
+                            android:text="@{viewModel.pickupAddress}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/lbl_booking_offer_pickup_eta"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_booking_offer_pickup_eta"
+                            tools:text="@tools:sample/lorem/random" />
+
+                        <Space
+                            android:id="@+id/space_bottom_booking_offer_pickup"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/common_view_padding"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_booking_offer_pickup_address" />
+
+                        <androidx.constraintlayout.widget.Group
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{viewModel.showPickupAddress ? View.VISIBLE : View.GONE}"
+                            app:constraint_referenced_ids="space_bottom_booking_offer_pickup,space_top_booking_offer_pickup,img_booking_offer_pickup,lbl_booking_offer_pickup_eta,lbl_booking_offer_pickup_distance,lbl_booking_offer_pickup_address,v_booking_offer_pickup_bg" />
+
+                        <!--END: Pickup address views-->
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_booking_offer_stop_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/common_margin_half"
+                            android:text="@{viewModel.stopCount}"
+                            app:layout_constraintStart_toStartOf="@id/lbl_booking_offer_pickup_address"
+                            app:layout_constraintTop_toBottomOf="@id/space_bottom_booking_offer_pickup"
+                            tools:text="+1 stop" />
+
+                        <androidx.constraintlayout.widget.Group
+                            android:id="@+id/grp_booking_offer_stop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{viewModel.showStopCount ? View.VISIBLE : View.GONE}"
+                            app:constraint_referenced_ids="lbl_booking_offer_stop_count,img_booking_offer_stop" />
+
+                        <!--BEGIN: Drop address views-->
+
+                        <View
+                            android:id="@+id/v_booking_offer_drop_bg"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/bg_rounded_corner_8dp"
+                            android:backgroundTint="@color/bg_offer_card"
+                            app:layout_constraintBottom_toBottomOf="@id/space_bottom_booking_offer_drop"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/space_top_booking_offer_drop" />
+
+                        <Space
+                            android:id="@+id/space_top_booking_offer_drop"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/common_view_padding"
+                            android:layout_marginTop="0dp"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_booking_offer_stop_count"
+                            app:layout_goneMarginTop="@dimen/common_margin" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_booking_offer_drop_eta"
+                            style="@style/TextStyle.Cab9Driver.OfferLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/common_view_padding"
+                            android:text="@{viewModel.dropLabel}"
+                            app:layout_constraintStart_toEndOf="@id/img_booking_offer_drop"
+                            app:layout_constraintTop_toBottomOf="@id/space_top_booking_offer_drop"
+                            tools:text="6 mins away" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_booking_offer_drop_distance"
+                            style="@style/TextStyle.Cab9Driver.OfferLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/common_view_padding"
+                            android:text="@{viewModel.dropDistance}"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_booking_offer_drop_eta"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_booking_offer_drop_eta"
+                            tools:text="5 mi trip" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_booking_offer_drop_address"
+                            style="@style/TextStyle.Cab9Driver.OfferAddress"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/common_view_padding"
+                            android:text="@{viewModel.dropAddress}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/lbl_booking_offer_drop_eta"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_booking_offer_drop_eta"
+                            tools:text="@tools:sample/lorem/random" />
+
+                        <Space
+                            android:id="@+id/space_bottom_booking_offer_drop"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/common_view_padding"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_booking_offer_drop_address" />
+
+                        <androidx.constraintlayout.widget.Group
+                            android:id="@+id/grp_booking_offer_drop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{viewModel.showDropAddress ? View.VISIBLE : View.GONE}"
+                            app:constraint_referenced_ids="space_top_booking_offer_drop,space_bottom_booking_offer_drop,img_booking_offer_drop,lbl_booking_offer_drop_address,lbl_booking_offer_drop_distance,lbl_booking_offer_drop_eta,v_booking_offer_drop_bg" />
+
+                        <!--END: Drop address views-->
+
+                        <View
+                            android:id="@+id/v_booking_offer_pickup_drop_line"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_marginVertical="8dp"
+                            android:background="#D8D8D8"
+                            app:layout_constraintBottom_toBottomOf="@id/img_booking_offer_drop"
+                            app:layout_constraintEnd_toEndOf="@id/img_booking_offer_drop"
+                            app:layout_constraintStart_toStartOf="@id/img_booking_offer_drop"
+                            app:layout_constraintTop_toTopOf="@id/img_booking_offer_pickup" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_booking_offer_pickup"
+                            android:layout_width="@dimen/icon_size_regular"
+                            android:layout_height="@dimen/icon_size_regular"
+                            android:layout_marginStart="@dimen/common_view_padding"
+                            android:contentDescription="@null"
+                            android:padding="3dp"
+                            android:src="@drawable/ic_baseline_location_on_18"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_booking_offer_pickup_eta"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_booking_offer_pickup_eta"
+                            app:tint="@color/icon_tint_common" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_booking_offer_drop"
+                            android:layout_width="@dimen/icon_size_regular"
+                            android:layout_height="@dimen/icon_size_regular"
+                            android:layout_marginStart="@dimen/common_view_padding"
+                            android:contentDescription="@null"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_baseline_brightness_1_8"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_booking_offer_drop_eta"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_booking_offer_drop_eta"
+                            app:tint="@color/icon_tint_common" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_booking_offer_stop"
+                            android:layout_width="@dimen/icon_size_small"
+                            android:layout_height="@dimen/icon_size_small"
+                            android:contentDescription="@null"
+                            android:padding="4dp"
+                            android:src="@drawable/ic_baseline_brightness_1_8"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_booking_offer_stop_count"
+                            app:layout_constraintEnd_toEndOf="@id/img_booking_offer_drop"
+                            app:layout_constraintStart_toStartOf="@id/img_booking_offer_drop"
+                            app:layout_constraintTop_toTopOf="@id/lbl_booking_offer_stop_count"
+                            app:tint="@color/icon_tint_common" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </FrameLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_margin"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/bg_rounded_corner_8dp"
+                    android:backgroundTint="@color/bg_offer_card"
+                    android:paddingHorizontal="@dimen/common_view_padding"
+                    android:paddingVertical="@dimen/common_view_padding_half">
+
+                    <LinearLayout
+                        android:id="@+id/ll_speech_listener"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            app:lottie_autoPlay="true"
+                            app:lottie_clipToCompositionBounds="true"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/lottie_record_audio" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_listening" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_accept_offer"
+                        style="@style/Widget.Material3.Button.Icon"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/btn_height"
+                        android:layout_marginEnd="@dimen/common_margin_half"
+                        android:onClick="@{()->listener.onAcceptBooking()}"
+                        android:text="@string/action_accept"
+                        android:textSize="@dimen/text_size_vlarge"
+                        app:backgroundTint="@color/bg_offer_accept"
+                        app:cornerRadius="@dimen/size_8"
+                        app:icon="@drawable/ic_baseline_check_circle_24"
+                        app:layout_constraintEnd_toStartOf="@id/btn_reject_offer"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ll_speech_listener" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_reject_offer"
+                        style="@style/Widget.Material3.Button.Icon"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/btn_height"
+                        android:layout_marginStart="@dimen/common_margin_half"
+                        android:onClick="@{()->listener.onRejectBooking()}"
+                        android:text="@string/action_reject"
+                        android:textSize="@dimen/text_size_vlarge"
+                        app:backgroundTint="@color/bg_offer_reject"
+                        app:cornerRadius="@dimen/size_8"
+                        app:icon="@drawable/ic_baseline_close_circle_24"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn_accept_offer"
+                        app:layout_constraintTop_toBottomOf="@id/ll_speech_listener" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/grp_booking_offer_action_btns"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:constraint_referenced_ids="btn_accept_offer,btn_reject_offer" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_start_later"
+                        style="@style/Widget.Material3.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/btn_height"
+                        android:onClick="@{()->listener.onStartLater()}"
+                        android:text="@string/action_start_ride_later"
+                        android:textSize="@dimen/text_size_vlarge"
+                        android:visibility="gone"
+                        app:backgroundTint="#408737"
+                        app:cornerRadius="@dimen/corner_radius"
+                        app:layout_constraintTop_toBottomOf="@id/btn_accept_offer" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pBar_booking_offer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </FrameLayout>
+
+</layout>

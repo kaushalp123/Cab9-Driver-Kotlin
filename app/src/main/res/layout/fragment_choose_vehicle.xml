@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.cab9.driver.widgets.ReactiveLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:emptyIcon="@drawable/ic_vehicles"
+    app:emptySubtitle="@string/msg_no_vehicles"
+    app:emptyTitle="@string/no_vehicles">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vehicleList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:tag="@string/v_tag_complete"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_vehicle" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/pBarVehicleList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:tag="@string/v_tag_loading"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/shimmer_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/shimmer_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/shimmer_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/shimmer_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/shimmer_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/shimmer_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/shimmer_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/shimmer_color" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</com.cab9.driver.widgets.ReactiveLayout>

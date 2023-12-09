@@ -1,0 +1,111 @@
+<com.cab9.driver.widgets.ReactiveLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    android:elevation="@dimen/common_elevation"
+    android:translationZ="100dp"
+    app:emptyIcon="@drawable/ic_baseline_bookings"
+    app:emptyTitle="@string/err_no_data">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:tag="@string/v_tag_complete">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/brand_color"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/common_margin">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start|center_vertical"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/common_margin_half">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/SFProBoldFontStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_area"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_large" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/SFProRegularFontStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_distance"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_small" />
+
+            </LinearLayout>
+
+            <com.cab9.driver.widgets.ZoneLabelView
+                android:id="@+id/zone_column_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/common_margin_half" />
+
+            <com.cab9.driver.widgets.ZoneLabelView
+                android:id="@+id/zone_column_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_margin"
+                android:paddingVertical="@dimen/common_margin_half" />
+
+            <com.cab9.driver.widgets.ZoneLabelView
+                android:id="@+id/zone_column_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_margin"
+                android:paddingVertical="@dimen/common_margin_half" />
+
+            <com.cab9.driver.widgets.ZoneLabelView
+                android:id="@+id/zone_column_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_margin"
+                android:paddingVertical="@dimen/common_margin_half" />
+
+            <com.cab9.driver.widgets.ZoneLabelView
+                android:id="@+id/zone_column_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_margin"
+                android:paddingVertical="@dimen/common_margin_half"
+                app:zoneIcon="@drawable/img_plot_driver_count"
+                app:zoneLabel="@string/label_cars" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_zonal_overview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_zonal_overview" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:tag="@string/v_tag_loading_overlay"
+        android:visibility="gone" />
+
+</com.cab9.driver.widgets.ReactiveLayout>
+
+
+

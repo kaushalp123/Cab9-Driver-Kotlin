@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "902761458268",
+    "project_id": "dev-cab9",
+    "storage_bucket": "dev-cab9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902761458268:android:a1e229531e1530ce495499",
+        "android_client_info": {
+          "package_name": "com.cab9.androidApp.Driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902761458268-e2lsrhgcofltjtaaravfmdgnl4ra1fj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVNTDK8rQ6ugrOMe63QTEHTr-G-K8-LHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902761458268-e2lsrhgcofltjtaaravfmdgnl4ra1fj3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "902761458268-16kegdt2u0pkd73qmcspqngtej9rt4rm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.e9.iOS-Cab9-Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902761458268:android:5e7ac22a69ee5f66495499",
+        "android_client_info": {
+          "package_name": "com.cab9.androidApp.Driver.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902761458268-e2lsrhgcofltjtaaravfmdgnl4ra1fj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVNTDK8rQ6ugrOMe63QTEHTr-G-K8-LHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902761458268-e2lsrhgcofltjtaaravfmdgnl4ra1fj3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "902761458268-16kegdt2u0pkd73qmcspqngtej9rt4rm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.e9.iOS-Cab9-Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902761458268:android:ec4948345aebccfd495499",
+        "android_client_info": {
+          "package_name": "com.excel.cab9.driversapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902761458268-e2lsrhgcofltjtaaravfmdgnl4ra1fj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVNTDK8rQ6ugrOMe63QTEHTr-G-K8-LHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902761458268-e2lsrhgcofltjtaaravfmdgnl4ra1fj3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "902761458268-16kegdt2u0pkd73qmcspqngtej9rt4rm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.e9.iOS-Cab9-Driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

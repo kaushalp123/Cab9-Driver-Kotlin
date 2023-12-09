@@ -1,0 +1,383 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Cab9Driver" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!--Background color-->
+        <item name="android:windowBackground">@drawable/bg_app</item>
+        <!--Toolbar color-->
+        <item name="colorSurface">@color/background_color</item>
+
+        <item name="colorPrimary">@color/brand_color</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:navigationBarColor">@color/nav_bar_scrim</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+
+        <item name="toolbarStyle">@style/Widget.Cab9Driver.Toolbar</item>
+        <item name="materialButtonStyle">@style/Widget.Cab9Driver.Button</item>
+
+        <item name="android:dialogTheme">@style/Theme.Cab9Driver.Dialog</item>
+        <item name="materialAlertDialogTheme">
+            @style/ThemeOverlay.Cab9Driver.MaterialAlertDialog
+        </item>
+
+        <!--Snackbar button color-->
+        <!--<item name="snackbarButtonStyle">@style/Widget.Cab9Driver.SnackbarButton</item>-->
+    </style>
+
+    <style name="Theme.Cab9Driver" parent="Base.Theme.Cab9Driver" />
+
+    <!--CARD THEMING -> https://github.com/material-components/material-components-android/blob/master/docs/components/Card.md-->
+
+    <style name="Theme.Splash" parent="Theme.SplashScreen">
+        <!--Set the splash screen background, animated icon, and animation duration.-->
+        <item name="windowSplashScreenBackground">@android:color/white</item>
+
+        <!--Use windowSplashScreenAnimatedIcon to add either a drawable or an
+        animated drawable. One of these is required.-->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_icon</item>
+        <!-- Required for animated icons-->
+        <item name="windowSplashScreenAnimationDuration">200</item>
+
+        <!--Set the theme of the Activity that directly follows your splash screen.-->
+        <item name="postSplashScreenTheme">@style/Theme.Cab9Driver</item>
+        <!-- Required.-->
+    </style>
+
+    <!--BEGIN: Toolbar Styling-->
+    <style name="Widget.Cab9Driver.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.Cab9Driver.Toolbar.Title</item>
+        <item name="subtitleTextAppearance">@style/TextAppearance.Cab9Driver.Toolbar.Subtitle</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.Toolbar.Title" parent="">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.Toolbar.Subtitle" parent="">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+    <!--END: Toolbar styling-->
+
+    <!--Begin: Bottom nav color theming-->
+    <style name="Widget.Cab9Driver.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Cab9Driver.BottomNavigationView
+        </item>
+    </style>
+
+    <style name="ThemeOverlay.Cab9Driver.BottomNavigationView" parent="">
+        <item name="colorSurface">@color/system_ui_scim</item>
+    </style>
+
+    <style name="Widget.Cab9Driver.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/brand_color</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.BottomNavigationView.Active" parent="">
+        <item name="android:textColor">@color/brand_color</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.BottomNavigationView.Inactive" parent="">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+    <!--End: Bottom nav color theming-->
+
+    <!-- Begin: Alert DialogFragment Theming -->
+    <style name="Theme.Cab9Driver.Dialog" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_rounded_corners</item>
+    </style>
+    <!-- End: Alert DialogFragment Theming -->
+
+    <!-- Begin: Material Dialog Theming -->
+    <style name="ThemeOverlay.Cab9Driver.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.Rounded</item>
+    </style>
+
+    <style name="MaterialAlertDialog.Rounded" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearance">@style/ShapeAppearance.MaterialAlertDialog.Rounded</item>
+    </style>
+
+    <style name="ShapeAppearance.MaterialAlertDialog.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius</item>
+    </style>
+    <!-- End: Material Dialog Theming -->
+
+    <!--BEGIN: Button theming-->
+    <style name="Widget.Cab9Driver.Button" parent="Widget.Material3.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Cab9Driver.Button</item>
+        <item name="android:textAppearance">@style/TextAppearance.Cab9Driver.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Cab9Driver.SmallComponent</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.Button" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+    </style>
+
+    <style name="ThemeOverlay.Cab9Driver.Button" parent="">
+        <item name="colorContainer">@color/brand_color</item>
+        <item name="colorOnContainer">@android:color/white</item>
+    </style>
+
+    <style name="Widget.Cab9Driver.Button.TonalButton" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:textAppearance">@style/TextAppearance.Cab9Driver.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Cab9Driver.SmallComponent</item>
+    </style>
+    <!--END: Button theming-->
+
+    <!--BEGIN: Shape Theming-->
+    <style name="ShapeAppearance.Cab9Driver.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/common_corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Cab9Driver.Circular" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Cab9Driver.RoundedCorner" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Cab9Driver.TopRoundedCorner" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeTopLeft">@dimen/corner_radius</item>
+        <item name="cornerSizeTopRight">@dimen/corner_radius</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Cab9Driver.BottomRoundedCorner" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">@dimen/corner_radius</item>
+        <item name="cornerSizeBottomRight">@dimen/corner_radius</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+    </style>
+    <!--END: Shape Theming-->
+
+    <!-- BEGIN: Bottom Dialog Theming -->
+
+    <!-- set the rounded drawable as background to your bottom sheet -->
+    <style name="RoundedCornerBottomSheetTheme" parent="BottomSheetDialogStyle" />
+
+    <style name="BottomSheetDialogStyle" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/ModalBottomSheetDialog</item>
+    </style>
+
+    <style name="ModalBottomSheetDialog" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet_rounded_corner</item>
+    </style>
+    <!-- END: Bottom Dialog Theming -->
+
+    <!--BEGIN: Snackbar theming-->
+    <!--    <style name="Widget.Cab9Driver.SnackbarButton" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">-->
+    <!--        <item name="android:textColor">#FFFFFF</item>-->
+    <!--    </style>-->
+    <!--END: Snackbar theming-->
+
+    <style name="TextAppearance.Cab9Driver.BookingDetailLabel" parent="">
+        <item name="android:textColor">@color/text_color_3</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.BookingDetailInfo" parent="">
+        <item name="android:textColor">@color/text_color_1</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+    </style>
+
+    <style name="SFProSemiBoldFontStyle">
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+    </style>
+
+    <style name="SFProBoldFontStyle">
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+    </style>
+
+    <style name="SFProMediumFontStyle">
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+    </style>
+
+    <style name="SFProRegularFontStyle">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.Login" parent="">
+        <item name="android:textColor">@color/text_color_1</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.TitleLarge" parent="">
+        <item name="android:textColor">@color/text_color_1</item>
+        <item name="android:textSize">32sp</item>
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.JobPoolTab" parent="">
+        <item name="android:textColor">@color/text_color_job_pool_tab</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.ToggleStateLabel" parent="">
+        <item name="android:textColor">@color/text_color_2</item>
+        <item name="android:textSize">@dimen/toggle_state_label_text_size</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.ToggleStateInfo" parent="">
+        <item name="android:textColor">@color/text_color_1</item>
+        <item name="android:textSize">@dimen/toggle_state_info_text_size</item>
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextAppearance.Cab9Driver.ToggleStateStatus" parent="">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="TextStyle.Cab9Driver.OfferAddress" parent="">
+        <item name="android:textColor">@color/text_color_1</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:ellipsize">end</item>
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+    </style>
+
+    <style name="TextStyle.Cab9Driver.OfferLabel" parent="">
+        <item name="android:textColor">@color/bg_offer_timer</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+    </style>
+
+    <style name="CardStyle.Cab9Driver.Filled" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/bg_tint_color_3</item>
+        <item name="cardCornerRadius">@dimen/common_corner_radius</item>
+        <item name="strokeColor">@color/bg_tint_color_1</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!--
+    style="@style/Widget.Material3.CardView.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:layout_marginVertical="@dimen/common_view_padding_half"
+        app:cardBackgroundColor="@color/bg_tint_color_3"
+        app:cardCornerRadius="4dp"
+        app:strokeColor="@color/bg_tint_color_1"
+        app:strokeWidth="1dp"-->
+
+
+    <!--    <style name="TextAppearance.Cab9Driver.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.HeadlineSmall" parent="TextAppearance.Material3.HeadlineLarge">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.TitleSmall" parent="TextAppearance.Material3.TitleSmall">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.TitleMedium" parent="TextAppearance.Material3.TitleMedium">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.TitleLarge" parent="TextAppearance.Material3.TitleLarge">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.BodySmall" parent="TextAppearance.Material3.BodySmall">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.BodyMedium" parent="TextAppearance.Material3.BodyMedium">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.BodyLarge" parent="TextAppearance.Material3.BodyLarge">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_regular</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.LabelSmall" parent="TextAppearance.Material3.LabelSmall">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.LabelMedium" parent="TextAppearance.Material3.LabelMedium">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="TextAppearance.Cab9Driver.LabelLarge" parent="TextAppearance.Material3.LabelLarge">-->
+    <!--        <item name="fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--        <item name="android:fontFamily">@font/sf_pro_display_medium</item>-->
+    <!--    </style>-->
+
+
+</resources>

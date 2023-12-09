@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view_status_dialog_drag_indicator"
+        android:layout_width="40dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:background="@color/bg_tint_color_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_break_allocation"
+        style="@style/Widget.Material3.CardView.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/bg_tint_color_1"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:layout_constraintTop_toBottomOf="@id/view_status_dialog_drag_indicator"
+        tools:visibility="visible">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_allocation_break"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/common_view_padding"
+            android:gravity="start"
+            android:padding="@dimen/common_view_padding"
+            android:text="@string/temp_msg_allocation_break"
+            android:textAppearance="@style/SFProRegularFontStyle"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/text_size_small"
+            app:drawableStartCompat="@drawable/ic_taxi_alert_24" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lblOnlineDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_break_allocation"
+        tools:text="January 9th" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_shift_earnings_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:text="@string/label_earning"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/lblOnlineDate" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lblShiftEarnings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_half"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/lbl_completed_booking_count_label"
+        tools:text="$234.89" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_completed_booking_count_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:text="@string/label_bookings"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateLabel"
+        app:layout_constraintEnd_toStartOf="@id/guide_center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblOnlineDate" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lblCompletedBookingCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_half"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateInfo"
+        app:layout_constraintEnd_toStartOf="@id/guide_center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_shift_earnings_label"
+        tools:text="03" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_online_shift_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:text="@string/label_time_online"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateLabel"
+        app:layout_constraintEnd_toStartOf="@id/guide_center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblShiftEarnings" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lblOnlineShiftTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_half"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateInfo"
+        app:layout_constraintEnd_toStartOf="@id/guide_center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_online_shift_time_label"
+        tools:text="00:34:00" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_end_shift_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:text="@string/label_end_shift"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/lblCompletedBookingCount" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lblEndShiftTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_half"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/lbl_end_shift_time_label"
+        tools:text="12:15" />
+
+    <ImageButton
+        android:id="@+id/imgAddEndShiftTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackgroundBorderless"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_baseline_add_circle_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/lblOnlineShiftTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_center_vertical"
+        app:layout_constraintTop_toTopOf="@id/lblOnlineShiftTime"
+        app:tint="@color/icon_tint_common" />
+
+    <ProgressBar
+        android:id="@+id/pBarShiftEndTime"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/lblOnlineShiftTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_center_vertical"
+        app:layout_constraintTop_toTopOf="@id/lblOnlineShiftTime" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_dispatch_setting_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:gravity="center"
+        android:text="@string/label_auto_dispatch_pickup_time"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblOnlineShiftTime" />
+
+    <ProgressBar
+        android:id="@+id/pBarUpdateDispatchTime"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="@dimen/common_margin"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/lbl_dispatch_setting_label"
+        app:layout_constraintEnd_toStartOf="@id/lbl_dispatch_setting_label"
+        app:layout_constraintTop_toTopOf="@id/lbl_dispatch_setting_label"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_slide_minus_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_margin"
+        android:background="?selectableItemBackground"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_baseline_minus_circle_outline_24"
+        app:layout_constraintBottom_toBottomOf="@id/sliderDispatchSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sliderDispatchSettings"
+        app:tint="@color/color_online_status" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sliderDispatchSettings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/img_slide_plus_indicator"
+        app:layout_constraintStart_toEndOf="@id/img_slide_minus_indicator"
+        app:layout_constraintTop_toBottomOf="@id/lbl_dispatch_setting_label"
+        app:thumbColor="@color/color_online_status"
+        app:tickVisible="false"
+        app:trackColorActive="@color/color_online_status"
+        tools:value="15"
+        tools:valueFrom="2"
+        tools:valueTo="30" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_slide_plus_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin"
+        android:background="?selectableItemBackground"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_baseline_plus_circle_outline"
+        app:layout_constraintBottom_toBottomOf="@id/sliderDispatchSettings"
+        app:layout_constraintEnd_toStartOf="@id/lblDispatchSettingsValue"
+        app:layout_constraintTop_toTopOf="@id/sliderDispatchSettings"
+        app:tint="@color/color_online_status" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lblDispatchSettingsValue"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="@dimen/common_margin"
+        android:background="@drawable/bg_dispatch_settings_value"
+        android:gravity="center"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_vlarge"
+        app:fontFamily="@font/sf_pro_display_semibold"
+        app:layout_constraintBottom_toBottomOf="@id/sliderDispatchSettings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sliderDispatchSettings"
+        tools:text="20" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpAutoDispatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="lbl_dispatch_setting_label,img_slide_minus_indicator,img_slide_plus_indicator,sliderDispatchSettings,lblDispatchSettingsValue" />
+
+    <LinearLayout
+        android:id="@+id/clStatusChangeSeekBarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:background="@color/color_online_status"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/sliderDispatchSettings">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_online_status_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_view_padding_2x"
+            android:gravity="center"
+            android:text="@string/label_status"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/toggle_state_info_text_size"
+            app:fontFamily="@font/sf_pro_display_medium"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/fl_status_seek_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_margin_2x"
+            android:layout_marginTop="@dimen/common_view_padding_2x"
+            android:layout_marginRight="@dimen/common_margin_2x"
+            app:layout_constraintTop_toBottomOf="@id/lbl_online_status_header">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                app:srcCompat="@drawable/img_seekbar_background" />
+
+            <SeekBar
+                android:id="@+id/statusChangeSeekbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/status_change_seekbar_height"
+                android:layout_gravity="center"
+                android:max="100"
+                android:paddingStart="@dimen/common_view_padding_3x"
+                android:paddingEnd="@dimen/common_view_padding_3x"
+                android:progressDrawable="@drawable/seekbar_progress"
+                android:rotation="360"
+                android:splitTrack="false"
+                android:thumb="@drawable/ic_seekbar_online_thumb"
+                android:thumbOffset="20dp"
+                app:layout_constraintTop_toBottomOf="@id/lbl_online_status_header" />
+
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/label_status_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_margin"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/common_margin">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lblStatusBreakLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_margin_half"
+                android:gravity="center"
+                android:text="@string/label_break"
+                android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateStatus"
+                app:layout_constraintEnd_toStartOf="@+id/lblStatusOnlineLabel"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lblStatusOnlineLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_margin_half"
+                android:gravity="center"
+                android:text="@string/label_you_are_online"
+                android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateStatus"
+                app:layout_constraintEnd_toEndOf="@+id/lblStatusOfflineLabel"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintHorizontal_weight="2"
+                app:layout_constraintStart_toEndOf="@+id/lblStatusBreakLabel"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lblStatusOfflineLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_margin_half"
+                android:gravity="center"
+                android:text="@string/label_offline"
+                android:textAppearance="@style/TextAppearance.Cab9Driver.ToggleStateStatus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@+id/lblStatusOnlineLabel"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_status_change_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/common_view_padding_2x"
+            android:text="@string/label_swipe_to_change_your_status"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_medium"
+            app:fontFamily="@font/sf_pro_display_regular" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_view_padding_2x"
+            app:layout_constraintTop_toBottomOf="@id/lbl_status_change_label" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

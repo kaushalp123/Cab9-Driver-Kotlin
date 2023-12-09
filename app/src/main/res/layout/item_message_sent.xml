@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/common_view_padding"
+    android:layout_marginTop="@dimen/common_view_padding"
+    android:gravity="end">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_sent_user_avatar"
+        android:layout_width="@dimen/message_avatar_size"
+        android:layout_height="@dimen/message_avatar_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular"
+        tools:src="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:id="@+id/ll_sent_user_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_view_padding_half"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@id/img_sent_user_avatar"
+        app:layout_constraintTop_toTopOf="@id/img_sent_user_avatar">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_sent_time"
+            style="@style/SFProRegularFontStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color_2"
+            android:textSize="@dimen/text_size_small"
+            tools:text="@tools:sample/date/hhmmss" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_sent_user_name"
+            style="@style/SFProSemiBoldFontStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_view_padding"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color_1"
+            tools:text="@tools:sample/full_names" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_sent_images"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/common_view_padding_half"
+        android:layout_marginEnd="@dimen/common_view_padding_half"
+        app:layout_constraintEnd_toStartOf="@id/img_sent_user_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/img_sent_user_avatar">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/sent_image1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="end"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.RoundedCorner"
+            tools:src="@tools:sample/avatars" />
+
+        <FrameLayout
+            android:id="@+id/layout_more_images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_view_padding_half">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/sent_image2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.RoundedCorner"
+                tools:src="@drawable/img_circular_avatar_placeholder" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_no_of_more_images"
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_received_chat_bubble"
+                android:padding="@dimen/common_view_padding"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_regular"
+                android:visibility="gone"
+                tools:text="+1" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/message_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_view_padding_half"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/img_sent_user_avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_sent_images">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_sent_text"
+            style="@style/SFProRegularFontStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_sent_chat_bubble"
+            android:backgroundTint="@color/bg_color_chat_bubble"
+            android:padding="@dimen/common_view_padding"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/text_size_regular"
+            tools:maxLines="2"
+            tools:text="@tools:sample/lorem/random" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/img_failed_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_error_filled_24"
+        android:layout_marginStart="@dimen/common_view_padding"
+        app:layout_constraintStart_toEndOf="@+id/message_container"
+        app:layout_constraintTop_toBottomOf="@+id/img_sent_user_avatar"
+        app:layout_constraintTop_toTopOf="@+id/message_container"
+        app:layout_constraintBottom_toBottomOf="@+id/message_container"/>
+
+    <ProgressBar
+        android:id="@+id/pBar_retry_send"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="bottom|end"
+        android:padding="@dimen/common_view_padding_half"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/message_container"
+        app:layout_constraintTop_toBottomOf="@+id/img_sent_user_avatar"
+        app:layout_constraintTop_toTopOf="@+id/message_container"
+        app:layout_constraintBottom_toBottomOf="@+id/message_container"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

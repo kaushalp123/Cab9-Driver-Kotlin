@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.cab9.driver.ui.booking.bid.detail.JobBidBookingDetailViewModel" />
+
+        <variable
+            name="listener"
+            type="com.cab9.driver.ui.booking.bid.detail.JobBidDetailScreenClickListener" />
+    </data>
+
+    <com.cab9.driver.widgets.ReactiveLayout
+        android:id="@+id/rl_job_bid_detail"
+        state="@{viewModel.jobBidBookingOutcomeOutcome}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:tag="@string/v_tag_complete">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/common_margin"
+                android:layout_weight="1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/img_job_bid_booking_detail_map"
+                        mapImageUrl="@{viewModel.routeImgUrl}"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:contentDescription="@null"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintDimensionRatio="4:3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/img_map_placeholder" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_job_bid_booking_detail"
+                        style="@style/CardStyle.Cab9Driver.Filled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/common_margin"
+                        android:layout_marginTop="@dimen/common_margin"
+                        app:layout_constraintTop_toBottomOf="@id/img_job_bid_booking_detail_map">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/common_view_padding">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guide_center_vertical_job_bid_booking"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent=".5" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:fontFamily="@font/sf_pro_display_bold"
+                                android:text="@{viewModel.bookingDate}"
+                                android:textColor="@color/text_color_1"
+                                android:textSize="@dimen/text_size_vlarge"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="@tools:sample/date/mmddyy" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_job_bid_detail_payment_mode"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_date">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    paymentIcon="@{viewModel.paymentMode}"
+                                    android:layout_width="@dimen/icon_size_tags"
+                                    android:layout_height="@dimen/icon_size_tags"
+                                    android:background="@drawable/bg_rounded_corner_4dp"
+                                    android:contentDescription="@null"
+                                    android:padding="2dp"
+                                    app:tint="@color/white"
+                                    tools:backgroundTint="@color/brand_color"
+                                    tools:src="@drawable/ic_baseline_credit_card_24" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/common_view_padding_half"
+                                    android:text="@{viewModel.modeOfPayment}"
+                                    android:textAppearance="@style/SFProRegularFontStyle"
+                                    android:textColor="@color/text_color_2"
+                                    android:textSize="@dimen/text_size_regular"
+                                    tools:text="@tools:sample/lorem" />
+
+                            </LinearLayout>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/common_view_padding"
+                                android:fontFamily="@font/sf_pro_display_bold"
+                                android:text="@{viewModel.bookingTime}"
+                                android:textColor="@color/text_color_1"
+                                android:textSize="@dimen/text_size_vlarge"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:text="@tools:sample/date/hhmm" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/common_view_padding"
+                                android:fontFamily="@font/sf_pro_display_regular"
+                                android:text="@string/label_pickup_time"
+                                android:textColor="@color/text_color_1"
+                                android:textSize="@dimen/text_size_regular"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_time" />
+
+                            <View
+                                android:id="@+id/divider_job_bid_booking"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:background="@color/bg_tint_divider"
+                                app:layout_constraintTop_toBottomOf="@id/ll_job_bid_detail_payment_mode" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_pax_count_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_passengers"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/divider_job_bid_booking" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_pax_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:text="@{viewModel.paxCount}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_pax_count_label"
+                                tools:text="2" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_bag_count_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_bags"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                app:layout_constraintStart_toEndOf="@id/guide_center_vertical_job_bid_booking"
+                                app:layout_constraintTop_toBottomOf="@id/divider_job_bid_booking" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_bag_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.bagCount}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                app:layout_constraintStart_toEndOf="@id/guide_center_vertical_job_bid_booking"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_bag_count_label"
+                                tools:text="3" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_vehicle_type_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_vehicle_type"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_pax_count" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_vehicle_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:text="@{viewModel.vehicleType}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_vehicle_type_label"
+                                tools:text="Saloon" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_booking_tags_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/title_tags"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                android:visibility="@{viewModel.tagsVisibility}"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_vehicle_type" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:src="@drawable/ic_group_24"
+                                android:visibility="@{viewModel.tagsVisibility}"
+                                app:layout_constraintBottom_toBottomOf="@+id/lbl_booking_tags_label"
+                                app:layout_constraintStart_toEndOf="@id/lbl_booking_tags_label"
+                                app:layout_constraintTop_toTopOf="@id/lbl_booking_tags_label" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/list_booking_tags"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/size_4"
+                                android:orientation="horizontal"
+                                android:visibility="@{viewModel.tagsVisibility}"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_booking_tags_label"
+                                tools:listitem="@layout/item_tag" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_pickup_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_pickup"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/list_booking_tags" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_pickup"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/common_view_padding"
+                                android:text="@{viewModel.pickupAddress}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_pickup_label"
+                                tools:text="@tools:sample/cities" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_flight_no_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_flight_number"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                android:visibility="@{viewModel.flightNumberVisibility}"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_pickup" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_flight_no"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:text="@{viewModel.flightNumber}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                android:visibility="@{viewModel.flightNumberVisibility}"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_flight_no_label"
+                                tools:text="I3456E" />
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_flight_24"
+                                android:visibility="@{viewModel.flightNumberVisibility}"
+                                app:layout_constraintBottom_toBottomOf="@id/lbl_job_bid_booking_flight_no_label"
+                                app:layout_constraintStart_toEndOf="@id/lbl_job_bid_booking_flight_no_label"
+                                app:layout_constraintTop_toTopOf="@id/lbl_job_bid_booking_flight_no_label" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_flight_origin_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_arriving_from"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                android:visibility="@{viewModel.flightOriginVisibility}"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_flight_no" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_flight_origin"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/common_view_padding"
+                                android:text="@{viewModel.flightOrigin}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                android:visibility="@{viewModel.flightOriginVisibility}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_flight_origin_label"
+                                tools:text="@tools:sample/cities" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/list_booking_stops"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/common_view_padding"
+                                android:nestedScrollingEnabled="false"
+                                android:overScrollMode="never"
+                                android:visibility="@{viewModel.stopVisibility}"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_flight_origin"
+                                tools:itemCount="2"
+                                tools:listitem="@layout/item_stop" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_drop_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_drop"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/list_booking_stops" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_drop"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/common_view_padding"
+                                android:text="@{viewModel.dropAddress}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_drop_label"
+                                tools:text="@tools:sample/cities" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_note_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_notes"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                android:visibility="@{viewModel.noteVisibility}"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_drop" />
+
+                            <FrameLayout
+                                android:id="@+id/fm_booking_note"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/common_view_padding"
+                                android:layout_marginTop="@dimen/size_4"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_note_label">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/lbl_job_bid_booking_note"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_rounded_corner_4dp"
+                                    android:backgroundTint="@color/bg_color_notes"
+                                    android:padding="@dimen/common_view_padding_half"
+                                    android:text="@{viewModel.bookingNotes}"
+                                    android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                    android:visibility="@{viewModel.noteVisibility}"
+                                    tools:maxLines="1"
+                                    tools:text="@tools:sample/lorem/random" />
+
+                            </FrameLayout>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/CardStyle.Cab9Driver.Filled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/common_margin"
+                        android:layout_marginTop="@dimen/common_margin"
+                        app:layout_constraintTop_toBottomOf="@id/card_job_bid_booking_detail">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/common_view_padding">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_distance_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/label_distance"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_distance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.distanceInMiles}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                app:layout_constraintBottom_toBottomOf="@id/lbl_job_bid_booking_distance_label"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/lbl_job_bid_booking_distance_label"
+                                tools:text="14.6 mi" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_payment_mode_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_payment_mode"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_distance_label" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_payment_mode"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.strPaymentMode}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                app:layout_constraintBottom_toBottomOf="@id/lbl_job_bid_booking_payment_mode_label"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/lbl_job_bid_booking_payment_mode_label"
+                                tools:text="Cash" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_amt_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/common_view_padding"
+                                android:text="@string/label_commission"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+                                android:visibility="@{viewModel.commissionVisibility}"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/lbl_job_bid_booking_payment_mode" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/lbl_job_bid_booking_amt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/sf_pro_display_bold"
+                                android:text="@{viewModel.jobBidAmount}"
+                                android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+                                android:textSize="24sp"
+                                android:visibility="@{viewModel.commissionVisibility}"
+                                app:layout_constraintBottom_toBottomOf="@id/lbl_job_bid_booking_amt_label"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@id/lbl_job_bid_booking_amt_label"
+                                tools:text="$234.56" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_accept_bid_detail"
+                state="@{viewModel.acceptBidOutcome}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginHorizontal="@dimen/common_margin"
+                android:layout_marginBottom="@dimen/common_view_padding"
+                android:onClick="@{()->listener.onAcceptBid()}"
+                android:text="@{viewModel.acceptBookingBtnText}"
+                android:visibility="@{viewModel.acceptBookingBtnVisibility}"
+                tools:text="@string/action_accept_booking" />
+
+        </LinearLayout>
+
+        <include layout="@layout/shimmer_booking_detail_loading" />
+
+    </com.cab9.driver.widgets.ReactiveLayout>
+</layout>

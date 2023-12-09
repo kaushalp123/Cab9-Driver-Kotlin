@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/SFProSemiBoldFontStyle"
+        android:gravity="center"
+        android:id="@+id/lbl_choose_reason"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingVertical="@dimen/common_margin"
+        android:text="@string/label_choose_rejection_reason"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_vlarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:background="@drawable/bottom_shadow_gradient"
+        android:id="@+id/divider_view"
+        android:layout_height="4dp"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_choose_reason" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_rejection_reason"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_view"
+        tools:listitem="@layout/item_rejection_reason" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

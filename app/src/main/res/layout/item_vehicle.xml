@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.cab9.driver.utils.StringUtils" />
+
+        <variable
+            name="vehicle"
+            type="com.cab9.driver.data.models.Vehicle" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_vehicle"
+        style="@style/Widget.Material3.CardView.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/bg_tint_color_3"
+        app:cardCornerRadius="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_margin">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_vehicle_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:text="@{vehicle.name}"
+                android:textSize="@dimen/text_size_vlarge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/lorem" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_vehicle_reg_no"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/common_margin_half"
+                android:background="@drawable/bg_rounded_corner_4dp"
+                android:backgroundTint="@color/bg_tint_vehicle_no"
+                android:fontFamily="@font/sf_pro_display_bold"
+                android:padding="@dimen/common_margin_half"
+                android:text="@{vehicle.regNo}"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lbl_vehicle_name"
+                tools:text="@tools:sample/lorem" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/common_margin_half"
+                android:background="@drawable/bg_rounded_corner_border_4dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="@{StringUtils.isNullOrEmpty(vehicle.plateNumber) ? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/lbl_vehicle_reg_no"
+                app:layout_constraintStart_toEndOf="@id/lbl_vehicle_reg_no"
+                app:layout_constraintTop_toTopOf="@id/lbl_vehicle_reg_no">
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_start_rounded_corner_4dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txt_plate_number"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_pro_display_bold"
+                    android:padding="@dimen/common_margin_half"
+                    android:text="@{vehicle.plateNumber}"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="@tools:sample/lorem" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,84 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="marker_icon_width">80dp</dimen>
+    <dimen name="marker_icon_height">120dp</dimen>
+
+    <dimen name="common_margin_half">8dp</dimen>
+    <dimen name="common_margin">16dp</dimen>
+    <dimen name="common_margin_2x">32dp</dimen>
+
+    <dimen name="common_view_padding">10dp</dimen>
+    <dimen name="common_view_padding_2x">20dp</dimen>
+    <dimen name="common_view_padding_3x">30dp</dimen>
+    <dimen name="common_view_padding_half">5dp</dimen>
+
+    <dimen name="common_elevation">8dp</dimen>
+    <dimen name="common_corner_radius">4dp</dimen>
+
+    <dimen name="margin_zone_item">12dp</dimen>
+
+    <dimen name="size_4">4dp</dimen>
+    <dimen name="size_2">2dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+
+    <dimen name="in_app_message_top_margin">48dp</dimen>
+
+    <!--<dimen name="dialog_corner_radius">8dp</dimen>-->
+    <dimen name="tab_corner_radius">8dp</dimen>
+    <dimen name="corner_radius">12dp</dimen>
+
+    <dimen name="btn_height">55dp</dimen>
+    <dimen name="tab_height">30dp</dimen>
+    <dimen name="banner_height">50dp</dimen>
+
+    <!--    <dimen name="common_corner_radius">4dp</dimen>-->
+    <!--    <dimen name="common_btn_height">55dp</dimen>-->
+
+    <dimen name="common_summary_top_margin">4dp</dimen>
+
+    <dimen name="icon_size_tiny">14dp</dimen>
+    <dimen name="icon_size_small">18dp</dimen>
+    <dimen name="icon_size_regular">24dp</dimen>
+    <dimen name="icon_size_address">10dp</dimen>
+    <dimen name="icon_size_tags">20dp</dimen>
+    <dimen name="icon_size_large">48dp</dimen>
+
+    <dimen name="message_avatar_size">32dp</dimen>
+
+    <dimen name="text_size_vsmall">10sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_regular">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_vlarge">20sp</dimen>
+    <dimen name="text_size_xlarge">24sp</dimen>
+    <dimen name="text_size_offer_timer">70sp</dimen>
+
+    <dimen name="text_size_error_title">32sp</dimen>
+    <dimen name="toggle_state_label_text_size">18sp</dimen>
+    <dimen name="toggle_state_info_text_size">24sp</dimen>
+    <dimen name="payment_text_size">24sp</dimen>
+
+    <dimen name="icon_size_error">200dp</dimen>
+
+    <dimen name="brand_logo_size">200dp</dimen>
+
+    <dimen name="avatar_size">60dp</dimen>
+
+    <dimen name="btn_start_shift_size">80dp</dimen>
+    <dimen name="status_change_seekbar_height">60dp</dimen>
+    <dimen name="zonal_btn_size">50dp</dimen>
+    <dimen name="zonal_icon_size">20dp</dimen>
+
+    <dimen name="signature_margin">30dp</dimen>
+    <dimen name="signature_size">100dp</dimen>
+
+    <dimen name="menu_item_icon_size_profile">28dp</dimen>
+    <dimen name="menu_item_icon_size">32dp</dimen>
+    <dimen name="menu_item_view_height">65dp</dimen>
+
+    <dimen name="tag_space">4dp</dimen>
+    <dimen name="pen_size">3dp</dimen>
+</resources>

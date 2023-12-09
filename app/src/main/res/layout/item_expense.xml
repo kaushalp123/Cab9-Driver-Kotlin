@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="expense"
+            type="com.cab9.driver.data.models.ExpenseModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="@{expense.name}"
+            android:textColor="@color/text_color_2"
+            tools:text="@tools:sample/lorem" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:gravity="center_vertical"
+            android:text="@{@string/temp_amount_in_currency(expense.amount)}"
+            android:textSize="@dimen/text_size_regular"
+            tools:text="$10.98" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:fontFamily="@font/sf_pro_display_semibold"
+            android:gravity="center_vertical|end"
+            android:text="@{expense.status}"
+            android:textColor="@{expense.textColor}"
+            tools:text="Approved" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Material3.CardView.Filled"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/lbl_message"
+        style="@style/SFProMediumFontStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="4"
+        android:orientation="horizontal"
+        android:padding="@dimen/common_view_padding"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_large"
+        tools:text="@tools:sample/lorem/random" />
+
+</com.google.android.material.card.MaterialCardView>

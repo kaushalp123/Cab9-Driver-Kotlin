@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="payment"
+            type="com.cab9.driver.data.models.PaymentModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Material3.CardView.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:layout_marginVertical="@dimen/common_margin_half">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/common_view_padding">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:text="@{payment.weekName}"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_vlarge"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Week 26" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_payment_week_driver_commission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/common_view_padding_half"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:text="@{@string/temp_amount_in_currency(payment.driverCommission)}"
+                android:textColor="@color/driver_commission_text_color"
+                android:textSize="@dimen/payment_text_size"
+                app:layout_constraintBottom_toTopOf="@id/lbl_payment_week_company_commission"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="$123.98" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_view_padding"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/label_commission"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_regular"
+                app:layout_constraintBottom_toBottomOf="@id/lbl_payment_week_driver_commission"
+                app:layout_constraintEnd_toStartOf="@id/barrier_payment_amount"
+                app:layout_constraintTop_toTopOf="@id/lbl_payment_week_driver_commission" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_payment_week_company_commission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_view_padding_half"
+                android:fontFamily="@font/sf_pro_display_semibold"
+                android:text="@{@string/temp_amount_in_currency(payment.companyCommission)}"
+                android:textColor="@color/company_commission_text_color"
+                android:textSize="@dimen/text_size_regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lbl_payment_week_driver_commission"
+                tools:text="$103.98" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_view_padding"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/label_to_company"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_regular"
+                app:layout_constraintBottom_toBottomOf="@id/lbl_payment_week_company_commission"
+                app:layout_constraintEnd_toStartOf="@id/barrier_payment_amount"
+                app:layout_constraintTop_toTopOf="@id/lbl_payment_week_company_commission" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_payment_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="start"
+                app:constraint_referenced_ids="lbl_payment_week_company_commission,lbl_payment_week_driver_commission" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rootView"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="@dimen/size_16">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_add_message"
+        style="@style/SFProBoldFontStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/label_add_quick_message"
+        android:textSize="@dimen/text_size_large" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_quick_message"
+        style="@style/SFProRegularFontStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_view_padding_2x"
+        android:background="@drawable/bg_rounded_corner_16dp"
+        android:backgroundTint="?android:colorBackground"
+        android:hint="@string/hint_type_quick_message"
+        android:inputType="text|textMultiLine"
+        android:maxLines="5"
+        android:padding="@dimen/common_view_padding"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_regular" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_view_padding_2x"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginEnd="@dimen/common_view_padding"
+            android:layout_weight="1"
+            android:backgroundTint="@color/light_gray"
+            android:text="@string/action_cancel"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginStart="@dimen/common_view_padding"
+            android:layout_weight="1"
+            android:backgroundTint="@color/brand_color"
+            android:text="@string/action_add"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

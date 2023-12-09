@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.cab9.driver.ui.account.profile.AccountInfoScreenClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.cab9.driver.ui.account.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_tint_color_3"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/common_margin"
+                android:paddingVertical="@dimen/common_margin_half">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/SFProRegularFontStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint_username"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_small" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/SFProSemiBoldFontStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@{viewModel.username}"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/text_size_regular"
+                    tools:text="@tools:sample/first_names" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/bg_tint_color_3"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/common_margin_half"
+                    android:layout_marginStart="@dimen/common_margin"
+                    android:layout_weight="8"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/SFProRegularFontStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_email"
+                        android:textColor="@color/text_color_2"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <EditText
+                        android:id="@+id/txtAccountEmail"
+                        style="@style/SFProSemiBoldFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:inputType="textEmailAddress"
+                        android:text="@{viewModel.emailAddress}"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/text_size_regular"
+                        tools:text="android.test@abc.com" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUpdateAccountEmail"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        state="@{viewModel.updateEmailOutcome}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{()->listener.updateEmail()}"
+                        android:text="@string/action_edit" />
+
+                    <ProgressBar
+                        android:id="@+id/pBar_update_email"
+                        state="@{viewModel.updateEmailOutcome}"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/common_margin"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/bg_tint_color_3"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/common_margin_half"
+                    android:layout_marginStart="@dimen/common_margin"
+                    android:layout_weight="7.5"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/SFProRegularFontStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_password"
+                        android:textColor="@color/text_color_2"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <EditText
+                        style="@style/SFProSemiBoldFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@null"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center_vertical"
+                        android:inputType="textPassword"
+                        android:text="@{viewModel.password}"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/text_size_regular"
+                        tools:text="**********" />
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2.5"
+                    android:onClick="@{()->listener.changePassword()}"
+                    android:text="@string/action_change" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/SFProBoldFontStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/common_margin_half"
+                android:text="@string/title_bank_info"
+                android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
+                android:textSize="@dimen/text_size_large" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_tint_color_3"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/common_margin_half"
+                    android:layout_marginStart="@dimen/common_margin"
+                    android:layout_weight="8"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/SFProRegularFontStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_bank_name"
+                        android:textColor="@color/text_color_2"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <EditText
+                        android:id="@+id/txtBankName"
+                        style="@style/SFProSemiBoldFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:hint="@string/hint_bank_name"
+                        android:inputType="textCapWords"
+                        android:text="@{viewModel.bankName}"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/text_size_regular"
+                        tools:text="@tools:sample/lorem" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUpdateBankName"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        state="@{viewModel.updateBankNameOutcome}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{()->listener.updateBankName()}"
+                        android:text="@string/action_edit" />
+
+                    <ProgressBar
+                        android:id="@+id/pBar_update_bank_name"
+                        state="@{viewModel.updateBankNameOutcome}"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/common_margin"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/bg_tint_color_3"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/common_margin_half"
+                    android:layout_marginStart="@dimen/common_margin"
+                    android:layout_weight="8"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/SFProRegularFontStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_sort_code"
+                        android:textColor="@color/text_color_2"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <EditText
+                        android:id="@+id/txtBankSortCode"
+                        style="@style/SFProSemiBoldFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:hint="@string/hint_sort_code"
+                        android:inputType="text"
+                        android:text="@{viewModel.bankSortCode}"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/text_size_regular"
+                        tools:text="@tools:sample/us_zipcodes" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUpdateBankSortCode"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        state="@{viewModel.updateBankSortCodeOutcome}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{()->listener.updateBankSortCode()}"
+                        android:text="@string/action_edit" />
+
+                    <ProgressBar
+                        android:id="@+id/pBar_update_bank_sort_code"
+                        state="@{viewModel.updateBankSortCodeOutcome}"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/common_margin"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/bg_tint_color_3"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/common_margin_half"
+                    android:layout_marginStart="@dimen/common_margin"
+                    android:layout_weight="8"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/SFProRegularFontStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_account_number"
+                        android:textColor="@color/text_color_2"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <EditText
+                        android:id="@+id/txtBankAccountNo"
+                        style="@style/SFProSemiBoldFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:hint="@string/hint_account_number"
+                        android:inputType="number"
+                        android:text="@{viewModel.bankAccountNo}"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/text_size_regular"
+                        tools:text="@tools:sample/us_phones" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUpdateBankAccountNo"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        state="@{viewModel.updateBankAccountNoOutcome}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{()->listener.updateBankAccountNumber()}"
+                        android:text="@string/action_edit" />
+
+                    <ProgressBar
+                        android:id="@+id/pBar_update_bank_account_no"
+                        state="@{viewModel.updateBankAccountNoOutcome}"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/common_margin"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/SFProBoldFontStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/common_margin"
+                android:text="@string/title_tags"
+                android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
+                android:textSize="@dimen/text_size_large" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_tint_color_3">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/profileTagList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/common_margin"
+                    android:layout_marginVertical="@dimen/common_margin_half"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_tag" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/lbl_tag_empty"
+                    style="@style/SFProRegularFontStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="@dimen/common_margin"
+                    android:layout_marginVertical="@dimen/common_margin_half"
+                    android:text="@string/no_tags"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_regular"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_margin" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

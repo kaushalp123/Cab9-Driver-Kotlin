@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "34295294334",
+    "project_id": "prod-cab9-fcm-3",
+    "storage_bucket": "prod-cab9-fcm-3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34295294334:android:018ab3908213f443c66b2f",
+        "android_client_info": {
+          "package_name": "com.ecph.android.driverApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34295294334-5b0ps36fmub9ncjirpbs78d0jac34qsa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMXe9bSvuHX-N0FkfLijJC1-9fWkA5PMA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34295294334-5b0ps36fmub9ncjirpbs78d0jac34qsa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "34295294334-iqej7c5bom1ll84dggkvbtkc4jdsq4mb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ecph.iOS.AppDriver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

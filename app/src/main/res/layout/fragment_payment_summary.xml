@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="payment"
+            type="com.cab9.driver.data.models.PaymentModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/brand_color"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:paddingHorizontal="@dimen/common_margin"
+                android:paddingVertical="@dimen/common_view_padding"
+                android:text="@{payment.weekName}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_large"
+                tools:text="Week 26" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:paddingHorizontal="@dimen/common_margin"
+                android:paddingVertical="@dimen/common_view_padding"
+                android:text="@{payment.weekStartEndDate}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_large"
+                tools:text="Jul 03 - Jul 09" />
+
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.Material3.CardView.Filled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/common_margin"
+                    android:layout_marginTop="@dimen/common_margin">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/common_view_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_bold"
+                            android:text="@string/label_receive_from_company"
+                            android:textColor="@color/text_color_1"
+                            android:textSize="@dimen/text_size_regular"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_received_amount_from_company"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_received_amount_from_company" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_received_amount_from_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:text="@{@string/temp_amount_in_currency(payment.driverCommission)}"
+                            android:textColor="@color/driver_commission_text_color"
+                            android:textSize="@dimen/text_size_vlarge"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="$123.45" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_booking_commission"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_view_padding"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:text="@{@string/temp_amount_in_currency(payment.driverBookingCommissionAmount)}"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_regular"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_received_amount_from_company"
+                            tools:text="$23.45" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:text="@string/label_booking_commission"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_medium"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_booking_commission"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_booking_commission" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_payment_bonus_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_view_padding_half"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:text="@{@string/temp_amount_in_currency(payment.bonusAmount)}"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_regular"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_booking_commission"
+                            tools:text="$23.45" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:text="@string/label_bonus_amount"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_medium"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_payment_bonus_amount"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_payment_bonus_amount" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_payment_adjustment_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_view_padding_half"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:text="@{@string/temp_amount_in_currency(payment.adjustmentTotalAmount)}"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_regular"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_payment_bonus_amount"
+                            tools:text="$23.45" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:text="@string/label_adjustments"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_medium"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_payment_adjustment_amount"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_payment_adjustment_amount" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.Material3.CardView.Filled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/common_margin"
+                    android:layout_marginTop="@dimen/common_margin">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/common_view_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_bold"
+                            android:text="@string/label_pay_to_company"
+                            android:textColor="@color/text_color_1"
+                            android:textSize="@dimen/text_size_regular"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_pay_to_company"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_pay_to_company" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_pay_to_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:text="@{@string/temp_amount_in_currency(payment.companyCommission)}"
+                            android:textColor="@color/company_commission_text_color"
+                            android:textSize="@dimen/text_size_vlarge"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="$123.45" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_company_booking_commission"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_view_padding"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:text="@{@string/temp_amount_in_currency(payment.companyBookingCommissionAmount)}"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_regular"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_pay_to_company"
+                            tools:text="$23.45" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:text="@string/label_booking_commission"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_medium"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_company_booking_commission"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_company_booking_commission" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_company_adjustments"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/common_view_padding_half"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:text="@{@string/temp_amount_in_currency(payment.companyAdjustmentTotalAmount)}"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_regular"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lbl_company_booking_commission"
+                            tools:text="$23.45" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_regular"
+                            android:text="@string/label_adjustments"
+                            android:textColor="@color/text_color_2"
+                            android:textSize="@dimen/text_size_medium"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_company_adjustments"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_company_adjustments" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.Material3.CardView.Filled"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/common_margin"
+                    android:layout_marginTop="@dimen/common_margin">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/common_view_padding">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_bold"
+                            android:text="@string/label_total_receivable"
+                            android:textColor="@color/text_color_1"
+                            android:textSize="@dimen/text_size_vlarge"
+                            app:layout_constraintBottom_toBottomOf="@id/lbl_total_receivable"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/lbl_total_receivable" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/lbl_total_receivable"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_display_semibold"
+                            android:text="@{@string/temp_amount_in_currency(payment.totalPayout)}"
+                            android:textColor="@color/text_color_1"
+                            android:textSize="@dimen/text_size_vlarge"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="$123.45" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginBottom="@dimen/common_view_padding_half"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:gravity="center"
+            android:text="@string/msg_open_pdf"
+            android:textColor="@color/unselected_month_text_color"
+            android:textSize="@dimen/text_size_regular" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_view_pdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginBottom="@dimen/common_margin"
+            android:text="@string/action_view_pdf" />
+
+    </LinearLayout>
+</layout>

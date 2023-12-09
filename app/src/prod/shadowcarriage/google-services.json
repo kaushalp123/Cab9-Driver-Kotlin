@@ -1,0 +1,154 @@
+{
+  "project_info": {
+    "project_number": "97901734549",
+    "project_id": "prod-cab9-fcm-2",
+    "storage_bucket": "prod-cab9-fcm-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97901734549:android:b4685c39ac2bb601f6499c",
+        "android_client_info": {
+          "package_name": "com.alphacarsbarnet.android.Driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97901734549-119u8go4flfjm6q061h3iss3rhlpsvtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNKgxis0ONmp7KOFN8XpEqhe9cPLsaiFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97901734549-119u8go4flfjm6q061h3iss3rhlpsvtg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "97901734549-4s6publm6m7b29u2ki7j3464jb34k53j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alphacarsbarnet.iOS.DriverApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97901734549:android:b033123bc20c6ae0f6499c",
+        "android_client_info": {
+          "package_name": "com.carrus.android.driverapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97901734549-119u8go4flfjm6q061h3iss3rhlpsvtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNKgxis0ONmp7KOFN8XpEqhe9cPLsaiFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97901734549-119u8go4flfjm6q061h3iss3rhlpsvtg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "97901734549-4s6publm6m7b29u2ki7j3464jb34k53j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alphacarsbarnet.iOS.DriverApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97901734549:android:93e7c9a307822871f6499c",
+        "android_client_info": {
+          "package_name": "com.shadowcarriage.android.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97901734549-119u8go4flfjm6q061h3iss3rhlpsvtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNKgxis0ONmp7KOFN8XpEqhe9cPLsaiFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97901734549-119u8go4flfjm6q061h3iss3rhlpsvtg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "97901734549-4s6publm6m7b29u2ki7j3464jb34k53j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alphacarsbarnet.iOS.DriverApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97901734549:android:48af1c8dd0eeaf3cf6499c",
+        "android_client_info": {
+          "package_name": "com.umbrella.android.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97901734549-119u8go4flfjm6q061h3iss3rhlpsvtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNKgxis0ONmp7KOFN8XpEqhe9cPLsaiFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97901734549-119u8go4flfjm6q061h3iss3rhlpsvtg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "97901734549-4s6publm6m7b29u2ki7j3464jb34k53j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alphacarsbarnet.iOS.DriverApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

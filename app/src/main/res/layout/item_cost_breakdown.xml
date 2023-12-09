@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="charge"
+            type="com.cab9.driver.data.models.Charge" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{charge.label}"
+            android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailLabel"
+            tools:text="Actual Cost" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/temp_amount_in_currency(charge.amount)}"
+            android:textAppearance="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+            tools:text="$123.78" />
+
+    </LinearLayout>
+</layout>

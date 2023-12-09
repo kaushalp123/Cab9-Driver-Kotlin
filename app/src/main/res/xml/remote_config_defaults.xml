@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>meter_enabled_tenant_ids</key>
+        <value>
+            ["64F9A648-9140-4191-854E-468B7A172E3A","88EECACE-0F9E-48ED-9A84-0215B9734FD7","6D50F460-6ECB-475F-BDCD-92BDD88AEBA6","ECCD058B-E704-4AFC-9EBD-10D778B50926","E8B23333-0498-4827-88B1-86A30B9279CC","7E815512-2955-4B2F-8450-F80F95EA9F82","A9BB8457-923B-4868-993C-EA700F9175C4","FD3A20D2-3541-46EF-A46A-FBB8B27FED5F","86D67E5F-83AF-47E6-AE8E-54E02D935C51","E97F4D1C-094D-4DEF-A990-03E51FEB1AC5","7B9DEDDD-9250-406E-A706-4B195EEB6B01"]
+        </value>
+    </entry>
+    <entry>
+        <key>client_name_disabled_tenant_ids</key>
+        <value>[]</value>
+    </entry>
+    <entry>
+        <key>zone_now_enabled_tenant_ids</key>
+        <value>["64f9a648-9140-4191-854e-468b7a172e3a"]</value>
+    </entry>
+</defaultsMap>

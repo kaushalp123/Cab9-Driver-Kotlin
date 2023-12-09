@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.taxis247.android.driver",
+  "variantName": "prodTaxis247Release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 702400,
+      "versionName": "7.2.4",
+      "outputFile": "prodTaxis247_release_v702400_7.2.4_2023-11-09-18-47.apk"
+    }
+  ],
+  "elementType": "File"
+}

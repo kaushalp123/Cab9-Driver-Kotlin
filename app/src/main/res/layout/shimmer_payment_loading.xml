@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="@string/v_tag_loading">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginVertical="@dimen/common_margin_half"
+            android:background="@drawable/bg_rounded_corner_8dp"
+            android:backgroundTint="@color/shimmer_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginVertical="@dimen/common_margin_half"
+            android:background="@drawable/bg_rounded_corner_8dp"
+            android:backgroundTint="@color/shimmer_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginVertical="@dimen/common_margin_half"
+            android:background="@drawable/bg_rounded_corner_8dp"
+            android:backgroundTint="@color/shimmer_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginVertical="@dimen/common_margin_half"
+            android:background="@drawable/bg_rounded_corner_8dp"
+            android:backgroundTint="@color/shimmer_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginVertical="@dimen/common_margin_half"
+            android:background="@drawable/bg_rounded_corner_8dp"
+            android:backgroundTint="@color/shimmer_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginVertical="@dimen/common_margin_half"
+            android:background="@drawable/bg_rounded_corner_8dp"
+            android:backgroundTint="@color/shimmer_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginVertical="@dimen/common_margin_half"
+            android:background="@drawable/bg_rounded_corner_8dp"
+            android:backgroundTint="@color/shimmer_color" />
+
+    </LinearLayout>
+
+</com.facebook.shimmer.ShimmerFrameLayout>

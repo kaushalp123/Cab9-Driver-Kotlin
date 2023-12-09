@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_main_chat"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_job_pool_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/common_margin"
+            android:paddingVertical="@dimen/common_margin_half"
+            android:text="@string/title_chat"
+            android:textAppearance="@style/TextAppearance.Cab9Driver.TitleLarge" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/socket_status_indicator_img"
+            android:layout_width="@dimen/icon_size_tiny"
+            android:layout_height="@dimen/icon_size_tiny"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="@dimen/common_margin"
+            android:src="@drawable/bg_circular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular"
+            app:tint="@color/bg_offer_accept" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_chat_member_1"
+            android:layout_width="@dimen/message_avatar_size"
+            android:layout_height="@dimen/message_avatar_size"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="48dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular"
+            tools:src="@tools:sample/avatars" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_chat_member_2"
+            android:layout_width="@dimen/message_avatar_size"
+            android:layout_height="@dimen/message_avatar_size"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="32dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular"
+            tools:src="@tools:sample/avatars" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_chat_member_count"
+            style="@style/SFProSemiBoldFontStyle"
+            android:layout_width="@dimen/message_avatar_size"
+            android:layout_height="@dimen/message_avatar_size"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_circular"
+            android:backgroundTint="@color/brand_color"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="+1" />
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/retry_view"
+        android:layout_gravity="top|center">
+
+        <ProgressBar
+            android:id="@+id/progress_bar_append"
+            android:tag="progress_bar_append"
+            style="?android:attr/progressBarStyle"
+            android:visibility="gone"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:layout_gravity="center" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="@dimen/common_elevation"
+            app:cardCornerRadius="@dimen/corner_radius"
+            app:cardBackgroundColor="@color/brand_color"
+            style="@style/Widget.Material3.CardView.Elevated">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/retry_button_append"
+                android:tag="retry_button_append"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:paddingHorizontal="@dimen/common_margin"
+                android:paddingVertical="@dimen/common_margin_half"
+                android:textColor="@color/background_color"
+                android:text="@string/action_retry"
+                android:textAllCaps="false" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.cab9.driver.widgets.ReactiveLayout
+            android:id="@+id/chat_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:emptyIcon="@drawable/ic_baseline_bookings"
+            app:emptySubtitle="@string/msg_empty_chat"
+            app:emptyTitle="@string/no_chat">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/messageList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:tag="@string/v_tag_complete"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:reverseLayout="true"
+                app:stackFromEnd="true"
+                tools:listitem="@layout/item_message_received" />
+
+            <include
+                android:id="@+id/loading_shimmer_layout"
+                layout="@layout/shimmer_chat_loading"
+                android:tag="@string/v_tag_loading" />
+
+        </com.cab9.driver.widgets.ReactiveLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/floating_img_scroll_down"
+            android:backgroundTint="@color/bg_floating_btn_chat"
+            app:fabSize="mini"
+            android:outlineProvider="none"
+            android:src="@drawable/ic_baseline_down_arrow"
+            android:layout_margin="@dimen/common_margin_half"
+            android:layout_gravity="end|bottom"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/typing_anim_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/common_view_padding"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_typing_anim"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            app:lottie_autoPlay="true"
+            app:lottie_clipToCompositionBounds="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/lottie_typing_animation" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_user_typing"
+            style="@style/SFProRegularFontStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:padding="@dimen/common_view_padding_half"
+            android:textColor="@color/text_color_2"
+            android:textSize="@dimen/text_size_regular"
+            android:visibility="visible"
+            tools:text="@string/label_user_typing" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_view_padding_half"
+        android:animateLayoutChanges="true"
+        android:background="@color/bg_color_chat_bubble"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/common_view_padding">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/attachmentList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_view_padding"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/common_view_padding_half"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_attachment_preview" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_view_padding"
+            android:background="@drawable/bg_rounded_corner_16dp"
+            android:backgroundTint="?android:colorBackground"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_message_content"
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_view_padding_half"
+                android:layout_weight="1"
+                android:background="@drawable/bg_rounded_corner_16dp"
+                android:backgroundTint="?android:colorBackground"
+                android:hint="@string/hint_type_message"
+                android:inputType="text|textMultiLine"
+                android:maxLines="5"
+                android:padding="@dimen/common_view_padding"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_regular" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_attach"
+                android:layout_width="@dimen/icon_size_regular"
+                android:layout_height="@dimen/icon_size_regular"
+                android:layout_margin="@dimen/common_view_padding_half"
+                android:background="?selectableItemBackground"
+                android:src="@drawable/baseline_attach_file_24"
+                android:tint="@color/brand_color" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_quick_message"
+                android:layout_width="@dimen/icon_size_regular"
+                android:layout_height="@dimen/icon_size_regular"
+                android:layout_margin="@dimen/common_view_padding_half"
+                android:background="?selectableItemBackground"
+                android:src="@drawable/ic_baseline_add_circle_24"
+                android:tint="@color/brand_color" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_send_msg"
+                android:layout_width="@dimen/message_avatar_size"
+                android:layout_height="@dimen/message_avatar_size"
+                android:layout_marginHorizontal="@dimen/common_view_padding_half"
+                android:background="?selectableItemBackground"
+                android:src="@drawable/baseline_send_24"
+                android:tint="@color/brand_color" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

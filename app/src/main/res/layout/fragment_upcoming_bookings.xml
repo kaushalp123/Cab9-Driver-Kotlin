@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/common_margin"
+        android:paddingVertical="@dimen/common_margin_half"
+        android:text="@string/title_upcoming"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.TitleLarge" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/upcomingBookingSwipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.cab9.driver.widgets.ReactiveLayout
+            android:id="@+id/upcomingBookingListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:emptyIcon="@drawable/ic_baseline_bookings"
+            app:emptySubtitle="@string/msg_empty_upcoming_bookings"
+            app:emptyTitle="@string/no_bookings">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/upcomingBookingList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:tag="@string/v_tag_complete"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_booking" />
+
+            <include layout="@layout/shimmer_booking_loading" />
+
+        </com.cab9.driver.widgets.ReactiveLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

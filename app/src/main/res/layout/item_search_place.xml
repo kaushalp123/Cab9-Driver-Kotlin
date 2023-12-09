@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.cab9.driver.utils.StringUtils" />
+
+        <variable
+            name="prediction"
+            type="com.cab9.driver.data.models.Prediction.UiModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/common_margin">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="@{prediction.mainText}"
+            android:textAppearance="@style/SFProSemiBoldFontStyle"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/text_size_medium"
+            tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{prediction.secondaryText}"
+            android:textAppearance="@style/SFProRegularFontStyle"
+            android:textColor="@color/text_color_2"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="@{StringUtils.isNullOrEmpty(prediction.secondaryText) ? View.INVISIBLE : View.VISIBLE}"
+            tools:text="@tools:sample/lorem" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.acg.android.driver",
+  "variantName": "prodAcgRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 72400,
+      "versionName": "7.2.4",
+      "outputFile": "prodAcg_release_v72400_7.2.4_2023-11-09-18-57.apk"
+    }
+  ],
+  "elementType": "File"
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.cab9.driver.ui.login.WelcomeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_signupWebFragment"
+            app:destination="@id/signupWebFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.cab9.driver.ui.login.LoginFragment"
+        android:label=""
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_loginFragment_to_requiredPermissionFragment"-->
+<!--            app:destination="@id/requiredPermissionFragment" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.cab9.driver.ui.web.WebViewFragment"
+        android:label=""
+        tools:layout="@layout/fragment_webview">
+
+        <argument
+            android:name="url"
+            app:argType="string" />
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/signupWebFragment"
+        android:name="com.cab9.driver.ui.login.SignupWebFragment"
+        android:label=""
+        tools:layout="@layout/fragment_webview" />
+
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.cab9.driver.ui.login.ResetPasswordFragment"
+        android:label=""
+        tools:layout="@layout/fragment_reset_password" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/requiredPermissionFragment"-->
+<!--        android:name="com.cab9.driver.ui.account.settings.RequiredPermissionFragment"-->
+<!--        android:label=""-->
+<!--        tools:layout="@layout/fragment_required_permission" />-->
+
+
+</navigation>

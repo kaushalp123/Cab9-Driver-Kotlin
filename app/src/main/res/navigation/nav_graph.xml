@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.cab9.driver.ui.home.HomeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_accountMenuFragment"
+            app:destination="@id/accountMenuFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_cab9GoWebFragment"
+            app:destination="@id/cab9GoWebFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_upcoming_bookings"
+        android:name="com.cab9.driver.ui.booking.upcoming.UpcomingBookingsFragment"
+        android:label=""
+        tools:layout="@layout/fragment_upcoming_bookings">
+        <action
+            android:id="@+id/action_nav_upcoming_bookings_to_bookingDetailFragment"
+            app:destination="@id/bookingDetailFragment" />
+        <action
+            android:id="@+id/action_nav_upcoming_bookings_to_cab9GoWebFragment"
+            app:destination="@id/cab9GoWebFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.cab9.driver.ui.web.DashboardWebFragment"
+        android:label=""
+        tools:layout="@layout/fragment_webview" />
+
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.cab9.driver.ui.chat.ChatFragment"
+        android:label=""
+        tools:layout="@layout/fragment_chat" >
+    <action
+        android:id="@+id/action_nav_chat_to_ChooseAttachmentBottomDialogFragment"
+        app:destination="@id/ChooseAttachmentBottomDialogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookingDetailFragment"
+        android:name="com.cab9.driver.ui.booking.detail.BookingDetailFragment"
+        android:label=""
+        tools:layout="@layout/fragment_booking_detail">
+        <argument
+            android:name="bookingId"
+            app:argType="string" />
+        <argument
+            android:name="type"
+            app:argType="com.cab9.driver.data.models.BookingType" />
+        <action
+            android:id="@+id/action_bookingDetailFragment_to_cab9GoWebFragment"
+            app:destination="@id/cab9GoWebFragment"
+            app:popUpTo="@id/bookingDetailFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_bookingDetailFragment_to_addBookingExpenseFragment"
+            app:destination="@id/addBookingExpenseFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_job_pool_bids"
+        android:name="com.cab9.driver.ui.booking.bid.JobPoolBidFragment"
+        android:label=""
+        tools:layout="@layout/fragment_job_pool_bid">
+        <action
+            android:id="@+id/action_nav_job_pool_bids_to_jobBidBookingDetailFragment"
+            app:destination="@id/jobBidBookingDetailFragment" />
+        <action
+            android:id="@+id/action_nav_job_pool_bids_to_jobBidAuctionBottomDialogFragment2"
+            app:destination="@id/jobBidAuctionBottomDialogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobBidBookingDetailFragment"
+        android:name="com.cab9.driver.ui.booking.bid.detail.JobBidBookingDetailFragment"
+        android:label=""
+        tools:layout="@layout/fragment_job_bid_booking_detail">
+        <argument
+            android:name="jobPoolBid"
+            app:argType="com.cab9.driver.data.models.JobPoolBidModel" />
+        <argument
+            android:name="bidCategory"
+            app:argType="com.cab9.driver.data.models.BidCategory" />
+        <action
+            android:id="@+id/action_jobBidBookingDetailFragment_to_jobBidAuctionBottomDialogFragment"
+            app:destination="@id/jobBidAuctionBottomDialogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountMenuFragment"
+        android:name="com.cab9.driver.ui.account.AccountMenuFragment"
+        android:label=""
+        tools:layout="@layout/fragment_account_menu">
+        <action
+            android:id="@+id/action_accountMenuFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_accountMenuFragment_to_bookingHistoryFragment"
+            app:destination="@id/bookingHistoryFragment" />
+        <action
+            android:id="@+id/action_accountMenuFragment_to_weeklyPaymentListFragment"
+            app:destination="@id/weeklyPaymentListFragment" />
+        <action
+            android:id="@+id/action_accountMenuFragment_to_nav_grp_profile"
+            app:destination="@id/nav_grp_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/displaySettingsFragment"
+        android:name="com.cab9.driver.ui.account.settings.DisplaySettingsFragment"
+        android:label="@string/title_display"
+        tools:layout="@layout/fragment_display_settings" />
+
+    <fragment
+        android:id="@+id/chooseVehicleFragment"
+        android:name="com.cab9.driver.ui.account.vehicle.ChooseVehicleFragment"
+        android:label="@string/title_vehicles"
+        tools:layout="@layout/fragment_choose_vehicle" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.cab9.driver.ui.account.settings.SettingsFragment"
+        android:label="@string/action_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_displaySettingsFragment"
+            app:destination="@id/displaySettingsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_chooseVehicleFragment"
+            app:destination="@id/chooseVehicleFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_biometricSettingsFragment"
+            app:destination="@id/biometricSettingsFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_appDiagnosticsFragment"
+            app:destination="@id/appDiagnosticsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookingHistoryFragment"
+        android:name="com.cab9.driver.ui.booking.history.BookingHistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_booking_history">
+        <action
+            android:id="@+id/action_bookingHistoryFragment_to_bookingDetailFragment"
+            app:destination="@id/bookingDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentSummaryFragment"
+        android:name="com.cab9.driver.ui.account.payments.PaymentSummaryFragment"
+        android:label="@string/title_payment_summary"
+        tools:layout="@layout/fragment_payment_summary">
+        <argument
+            android:name="paymentSummary"
+            app:argType="com.cab9.driver.data.models.PaymentModel" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/weeklyPaymentListFragment"
+        android:name="com.cab9.driver.ui.account.payments.WeeklyPaymentListFragment"
+        android:label="@string/title_payments"
+        tools:layout="@layout/fragment_weekly_payment_list">
+        <action
+            android:id="@+id/action_weeklyPaymentListFragment_to_paymentSummaryFragment"
+            app:destination="@id/paymentSummaryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cab9GoWebFragment"
+        android:name="com.cab9.driver.ui.booking.ongoing.Cab9GoWebFragment"
+        android:label=""
+        tools:layout="@layout/fragment_webview">
+        <argument
+            android:name="bookingId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addBookingExpenseFragment"
+        android:name="com.cab9.driver.ui.booking.expense.AddBookingExpenseFragment"
+        android:label="@string/title_add_expense"
+        tools:layout="@layout/fragment_add_booking_expense">
+        <argument
+            android:name="bookingId"
+            app:argType="string" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/jobBidAuctionBottomDialogFragment"
+        android:name="com.cab9.driver.ui.booking.bid.auction.JobBidAuctionBottomDialogFragment"
+        android:label=""
+        tools:layout="@layout/bottom_dialog_submit_bid">
+        <argument
+            android:name="bookingAmount"
+            app:argType="float" />
+        <argument
+            android:name="bookingId"
+            app:argType="string" />
+        <argument
+            android:name="bidCategory"
+            app:argType="com.cab9.driver.data.models.BidCategory" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/ChooseAttachmentBottomDialogFragment"
+        android:name="com.cab9.driver.ui.chat.ChooseAttachmentBottomDialogFragment"
+        android:label=""
+        tools:layout="@layout/dialog_choose_files">
+    </dialog>
+
+    <fragment
+        android:id="@+id/biometricSettingsFragment"
+        android:name="com.cab9.driver.ui.account.settings.BiometricSettingsFragment"
+        android:label="@string/title_biometric"
+        tools:layout="@layout/fragment_biometric_settings" />
+
+    <fragment
+        android:id="@+id/appDiagnosticsFragment"
+        android:name="com.cab9.driver.ui.account.settings.AppDiagnosticsFragment"
+        android:label="@string/title_app_diagnostics"
+        tools:layout="@layout/fragment_app_diagnostics" />
+
+    <navigation
+        android:id="@+id/nav_grp_profile"
+        app:startDestination="@id/userProfileFragment">
+        <fragment
+            android:id="@+id/userProfileFragment"
+            android:name="com.cab9.driver.ui.account.profile.UserProfileFragment"
+            android:label="@string/title_profile"
+            tools:layout="@layout/fragment_profile">
+            <action
+                android:id="@+id/action_userProfileFragment_to_updateProfileFragment"
+                app:destination="@id/updateProfileFragment" />
+            <action
+                android:id="@+id/action_userProfileFragment_to_accountInfoFragment"
+                app:destination="@id/accountInfoFragment" />
+            <action
+                android:id="@+id/action_userProfileFragment_to_aboutFragment"
+                app:destination="@id/aboutFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/updateProfileFragment"
+            android:name="com.cab9.driver.ui.account.profile.UpdateProfileFragment"
+            android:label="@string/title_personal_info"
+            tools:layout="@layout/fragment_update_profile" />
+        <fragment
+            android:id="@+id/accountInfoFragment"
+            android:name="com.cab9.driver.ui.account.profile.AccountInfoFragment"
+            android:label="@string/title_account_info"
+            tools:layout="@layout/fragment_account_info">
+            <action
+                android:id="@+id/action_accountInfoFragment_to_changePasswordFragment"
+                app:destination="@id/changePasswordFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/changePasswordFragment"
+            android:name="com.cab9.driver.ui.account.profile.ChangePasswordFragment"
+            android:label="@string/title_change_password"
+            tools:layout="@layout/fragment_change_password">
+            <action
+                android:id="@+id/action_changePasswordFragment_to_resetPasswordFragment2"
+                app:destination="@id/resetPasswordFragment2"
+                app:popUpTo="@id/changePasswordFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/aboutFragment"
+            android:name="com.cab9.driver.ui.account.profile.AboutWebFragment"
+            android:label="@string/label_about"
+            tools:layout="@layout/fragment_webview" />
+
+        <fragment
+            android:id="@+id/resetPasswordFragment2"
+            android:name="com.cab9.driver.ui.login.ResetPasswordFragment"
+            android:label=""
+            tools:layout="@layout/fragment_reset_password" />
+    </navigation>
+
+</navigation>

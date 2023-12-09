@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="background_color">#F9F9F9</color>
+
+    <color name="system_ui_scrim_light">#E3FFFFFF</color>
+    <color name="system_ui_scrim_dark">#C3000000</color>
+
+    <color name="system_ui_scim">@color/system_ui_scrim_light</color>
+    <color name="nav_bar_scrim">@color/system_ui_scrim_dark</color>
+
+    <color name="light_gray">#DDDDDD</color>
+
+    <color name="icon_tint_error">#D8D8D8</color>
+    <color name="icon_tint_common">#111111</color>
+
+    <color name="text_color_1">#222222</color>
+    <color name="text_color_2">#666666</color>
+    <color name="text_color_3">#999999</color>
+    <color name="text_color_4">#555555</color>
+
+    <color name="text_color_rank">#FFFFFF</color>
+    <color name="text_color_error_desc">#717171</color>
+    <color name="text_color_error">#BAEE4343</color>
+
+    <color name="shimmer_color">#DDDDDD</color>
+
+    <color name="inactive_chat_send_button">#7D899E</color>
+
+    <!--    <color name="bg_tint_color_1">#C0C0C0</color>-->
+    <!--    <color name="bg_tint_color_2">#DCDCDC</color>-->
+
+    <color name="bg_tint_color_1">#DDDDDD</color>
+    <color name="bg_tint_color_2">#F9F9F9</color>
+    <color name="bg_tint_color_3">#FFFFFF</color>
+
+    <color name="text_box_outline_color">#DDDDDD</color>
+
+    <color name="bg_tint">#D8D8D8</color>
+    <color name="bg_tint_divider">#DDDDDD</color>
+
+    <color name="bg_tint_job_in_progress">#E3CC2626</color>
+    <color name="bg_tint_flight_number">#C951E5</color>
+    <color name="bg_tint_job_pool_tab">#E8E8E9</color>
+
+    <color name="bg_color_rank">#000000</color>
+    <color name="bg_color_swipe_archive">#FFCC00</color>
+    <color name="bg_color_swipe_submit">#4F87E7</color>
+    <color name="bg_color_notes">#fEE2E2</color>
+
+    <color name="color_online_status">#1FD0A3</color>
+    <color name="color_on_break_status">#FFCC00</color>
+    <color name="color_offline_status">#EE4343</color>
+    <color name="color_allocation_break">#FF6500</color>
+    <color name="online_timer_bg">#FFFFFF</color>
+
+    <color name="company_commission_text_color">#EE4343</color>
+    <color name="driver_commission_text_color">#1FD0A3</color>
+    <color name="unselected_month_text_color">#80373737</color>
+
+    <color name="approved_expense_text_color">#4A84E7</color>
+    <color name="pending_expense_text_color">#FFCC00</color>
+    <color name="declined_expense_text_color">#D0021B</color>
+
+    <color name="icon_tint_allocation_break">#8B0000</color>
+
+    <color name="zone_item_bg_color_1">#E5EAF1</color>
+    <color name="zone_item_bg_color_2">#F3F3F3</color>
+
+    <color name="bg_tint_vehicle_no">#F9DA10</color>
+
+    <color name="bg_offer_timer">#67BE50</color>
+    <color name="bg_offer_accept">#50B033</color>
+    <color name="bg_offer_reject">#D32D30</color>
+    <color name="bg_offer_card">#F3F3F3</color>
+
+    <color name="penRoyalBlue">#4169e1</color>
+
+    <color name="color_other_payment">#9197FF</color>
+    <color name="color_cash_payment">#9197FF</color>
+    <color name="color_card_payment">#81E097</color>
+    <color name="color_on_account_payment">#ED4840</color>
+
+    <color name="shift_end_time_selected_text_color">#000000</color>
+
+    <color name="bg_color_cancellation">#E6FF0000</color>
+
+    <color name="indicator_color_pBar">#1FD0A3</color>
+    <color name="track_color_pBar">#E8E8E9</color>
+
+    <color name="bg_color_chat_bubble">#E3E8EF</color>
+
+    <color name="bg_floating_btn_chat">#C3F4F1F1</color>
+
+    <color name="bg_color_prebooked_bid">#eee6ff</color>
+</resources>

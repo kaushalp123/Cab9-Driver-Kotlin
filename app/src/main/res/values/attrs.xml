@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ErrorView">
+        <attr name="errorTitle" format="string" />
+        <attr name="errorSubtitle" format="string" />
+        <attr name="errorBtnText" format="string" />
+        <attr name="errorIcon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ReactiveLayout">
+        <attr name="emptyTitle" format="string" />
+        <attr name="emptySubtitle" format="string" />
+        <attr name="emptyIcon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="MenuItemCardView">
+        <attr name="menuItemTitle" format="string" />
+        <attr name="menuItemIcon" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SignatureView">
+        <attr name="enableSignature" format="boolean" />
+        <attr name="penSize" format="dimension" />
+        <attr name="penColor" format="color" />
+        <attr name="backgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ZoneLabelView">
+        <attr name="zoneLabel" format="string" />
+        <attr name="zoneIcon" format="reference" />
+    </declare-styleable>
+
+</resources>

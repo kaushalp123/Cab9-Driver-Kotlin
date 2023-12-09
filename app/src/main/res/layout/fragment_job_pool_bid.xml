@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_job_pool_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/common_margin"
+        android:paddingVertical="@dimen/common_margin_half"
+        android:text="@string/title_bids"
+        android:textAppearance="@style/TextAppearance.Cab9Driver.TitleLarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_job_pool_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_margin"
+        android:contentDescription="@null"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_baseline_calendar_24"
+        app:layout_constraintBottom_toBottomOf="@id/lbl_job_pool_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/lbl_job_pool_header" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/jobPoolDateList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/lbl_job_pool_header"
+        tools:listitem="@layout/item_date"
+        tools:visibility="visible" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/jobPoolBidTypeTab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_height"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:background="@drawable/bg_job_pool_tab_layout"
+        app:layout_constraintTop_toBottomOf="@id/jobPoolDateList"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabIndicator="@null"
+        app:tabPaddingBottom="0dp"
+        app:tabPaddingEnd="0dp"
+        app:tabPaddingStart="0dp"
+        app:tabPaddingTop="0dp"
+        app:tabRippleColor="@null"
+        app:tabTextAppearance="@style/TextAppearance.Cab9Driver.JobPoolTab"
+        app:tabUnboundedRipple="false">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nearby" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recent" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Archived" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submitted" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/jobPoolBidTypePager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/common_view_padding_half"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/jobPoolBidTypeTab" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

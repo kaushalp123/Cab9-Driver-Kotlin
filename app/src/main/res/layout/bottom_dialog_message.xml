@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/common_margin"
+    android:paddingBottom="@dimen/common_view_padding">
+
+    <View
+        android:id="@+id/v_message_dialog_drag_indicator"
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="@dimen/common_margin_half"
+        android:background="@color/bg_tint_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/SFProBoldFontStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:text="@string/label_imp_note"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_vlarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_message_dialog_drag_indicator" />
+
+    <TextView
+        android:id="@+id/lbl_message_time"
+        style="@style/SFProSemiBoldFontStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_vlarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_message_dialog_drag_indicator"
+        tools:text="13:56" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_persistent_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/lbl_message_time"
+        tools:listitem="@layout/item_persistent_message" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_ack_message"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:layout_marginEnd="@dimen/common_view_padding_half"
+        android:text="@string/action_acknowledge"
+        app:backgroundTint="@color/bg_offer_accept"
+        app:cornerRadius="@dimen/corner_radius"
+        app:layout_constraintEnd_toStartOf="@id/btn_open_message"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/list_persistent_message" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_open_message"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginStart="@dimen/common_view_padding_half"
+        android:layout_marginTop="@dimen/common_view_padding"
+        android:text="@string/action_chat"
+        app:backgroundTint="@color/brand_color"
+        app:cornerRadius="@dimen/corner_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_ack_message"
+        app:layout_constraintTop_toBottomOf="@id/list_persistent_message" />
+
+
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/btn_ack_message"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_marginTop="@dimen/common_view_padding"-->
+    <!--        android:layout_marginEnd="@dimen/common_view_padding_half"-->
+    <!--        android:background="@drawable/bg_rounded_corner_4dp"-->
+    <!--        android:backgroundTint="#50B033"-->
+    <!--        app:layout_constraintEnd_toStartOf="@id/btn_open_message"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/list_persistent_message">-->
+
+    <!--        <TextView-->
+    <!--            style="@style/SFProMediumFontStyle"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="@string/action_acknowledge"-->
+    <!--            android:textColor="@android:color/white"-->
+    <!--            android:textSize="@dimen/text_size_large" />-->
+
+    <!--    </FrameLayout>-->
+
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/btn_open_message"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_marginStart="@dimen/common_view_padding_half"-->
+    <!--        android:layout_marginTop="@dimen/common_view_padding"-->
+    <!--        android:background="@drawable/bg_rounded_corner_4dp"-->
+    <!--        android:backgroundTint="@color/brand_color"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@id/btn_ack_message"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/list_persistent_message">-->
+
+    <!--        <TextView-->
+    <!--            style="@style/SFProMediumFontStyle"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:drawableStart="@drawable/ic_chat_outline_24"-->
+    <!--            android:drawablePadding="@dimen/common_view_padding"-->
+    <!--            android:drawableTint="@android:color/white"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="Chat"-->
+    <!--            android:textColor="@android:color/white"-->
+    <!--            android:textSize="@dimen/text_size_large" />-->
+
+    <!--    </FrameLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

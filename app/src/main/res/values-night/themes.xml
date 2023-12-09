@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Cab9Driver" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!--Background color-->
+        <item name="android:windowBackground">@drawable/bg_app</item>
+        <!--Toolbar color-->
+        <item name="colorSurface">@color/background_color</item>
+
+        <item name="colorPrimary">@color/brand_color</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="android:navigationBarColor">@color/nav_bar_scrim</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+
+        <item name="toolbarStyle">@style/Widget.Cab9Driver.Toolbar</item>
+        <item name="materialButtonStyle">@style/Widget.Cab9Driver.Button</item>
+
+        <item name="android:dialogTheme">@style/Theme.Cab9Driver.Dialog</item>
+        <item name="materialAlertDialogTheme">
+            @style/ThemeOverlay.Cab9Driver.MaterialAlertDialog
+        </item>
+    </style>
+</resources>

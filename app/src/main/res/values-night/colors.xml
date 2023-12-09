@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="background_color">#222222</color>
+
+    <color name="system_ui_scim">@color/system_ui_scrim_dark</color>
+    <color name="nav_bar_scrim">@color/system_ui_scrim_dark</color>
+
+    <color name="icon_tint_error">#444444</color>
+    <color name="icon_tint_common">#DDDDDD</color>
+
+    <color name="text_color_1">#CCCCCC</color>
+    <color name="text_color_2">#999999</color>
+    <color name="text_color_3">#777777</color>
+    <color name="text_color_4">#888888</color>
+
+    <!--<color name="bg_tint_color_1">#444444</color>-->
+<!--    <color name="bg_tint_color_1">#1F1A24</color>-->
+<!--    <color name="bg_tint_color_2">#222222</color>-->
+
+    <color name="bg_tint_color_1">#444444</color>
+    <color name="bg_tint_color_2">#222222</color>
+    <color name="bg_tint_color_3">#161616</color>
+
+    <color name="text_box_outline_color">#444444</color>
+
+    <color name="bg_tint">#444444</color>
+    <color name="bg_tint_divider">#888888</color>
+
+    <color name="bg_color_rank">#FFFFFF</color>
+    <color name="bg_color_notes">#716F6F</color>
+
+    <color name="text_color_rank">#000000</color>
+
+    <color name="zone_item_bg_color_1">#222222</color>
+    <color name="zone_item_bg_color_2">#BA292828</color>
+
+    <color name="bg_offer_card">#BA444444</color>
+
+    <color name="shimmer_color">#332940</color>
+    <color name="online_timer_bg">@color/system_ui_scrim_dark</color>
+
+    <color name="shift_end_time_selected_text_color">#CCCCCC</color>
+
+    <color name="track_color_pBar">#264C4C50</color>
+
+    <color name="bg_color_chat_bubble">#2659595B</color>
+
+    <color name="bg_floating_btn_chat">#C3444444</color>
+
+    <color name="bg_color_prebooked_bid">#332940</color>
+</resources>

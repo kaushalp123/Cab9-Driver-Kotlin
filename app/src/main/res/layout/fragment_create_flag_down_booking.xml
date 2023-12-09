@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.cab9.driverapp.ui.flagdown.CreateFlagDownBookingFragment">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
+            android:layout_marginTop="@dimen/common_margin_half"
+            android:text="@string/label_pickup_location"
+            android:textAppearance="@style/SFProMediumFontStyle"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/text_size_vlarge" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginTop="@dimen/common_margin_half"
+            android:clickable="false"
+            android:enabled="false"
+            app:boxStrokeColor="@color/color_box_outline"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:hintTextColor="@color/text_color_3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtFlagDownPickupAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:textAppearance="@style/SFProSemiBoldFontStyle"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_regular"
+                tools:maxLines="4"
+                tools:text="@tools:sample/lorem/random" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin"
+            android:layout_marginTop="@dimen/common_margin"
+            android:text="@string/label_drop_location"
+            android:textAppearance="@style/SFProMediumFontStyle"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/text_size_vlarge" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:text="@string/label_summary_drop_location"
+            android:textAppearance="@style/SFProRegularFontStyle"
+            android:textColor="@color/text_color_2"
+            android:textSize="@dimen/text_size_medium" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginTop="@dimen/common_margin_half"
+            app:boxStrokeColor="@color/color_box_outline"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:hintTextColor="@color/text_color_3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt_flag_down_drop_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:drawableStart="@drawable/ic_baseline_search_24"
+                android:drawablePadding="@dimen/common_view_padding"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/hint_search_address"
+                android:inputType="none"
+                android:textAppearance="@style/SFProSemiBoldFontStyle"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_regular"
+                tools:maxLines="2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_start_flag_down_ride"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_marginBottom="@dimen/common_margin"
+            android:text="@string/action_start_ride"
+            app:cornerRadius="@dimen/corner_radius" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pBarFlagDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</FrameLayout>

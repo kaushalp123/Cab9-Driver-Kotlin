@@ -1,0 +1,616 @@
+<resources>
+    <string name="v_tag_complete" translatable="false">tagCompleteView</string>
+    <string name="v_tag_error" translatable="false">tagErrorView</string>
+    <string name="v_tag_loading_overlay" translatable="false">tagLoadingOverlayView</string>
+    <string name="v_tag_loading" translatable="false">tagLoadingView</string>
+    <string name="v_tag_loading_default" translatable="false">tagLoadingDefaultView</string>
+    <string name="v_tag_empty" translatable="false">tagEmptyView</string>
+
+    <string name="default_notification_channel_id" translatable="false">cab9DefaultNotificationChannelId</string>
+    <string name="default_notification_channel_name">Updates &amp; Notices</string>
+    <string name="default_notification_channel_desc">Handles all other incoming notifications.</string>
+
+    <string name="booking_offer_channel_id" translatable="false">booking_offer_alerts</string>
+    <string name="booking_offer_channel_desc">Handles all incoming booking offer notifications.</string>
+    <string name="booking_offer_channel_name">Booking Offers</string>
+
+    <string name="tracking_location_channel_id" translatable="false">cab9_location_service</string>
+    <string name="tracking_location_channel_desc">Used to notify when app is using your location and running.</string>
+    <string name="tracking_location_channel_name">Driver Tracking</string>
+
+    <string name="booking_cancel_channel_id" translatable="false">booking_cancel_alerts</string>
+    <string name="booking_cancel_channel_desc">Handles all cancel booking notifications.</string>
+    <string name="booking_cancel_channel_name">Cancel Bookings</string>
+
+    <string name="new_bidding_channel_id" translatable="false">new_job_bid_alerts</string>
+    <string name="new_bidding_channel_desc">Handles all new job bidding notifications.</string>
+    <string name="new_bidding_channel_name">New Bids</string>
+
+    <string name="tracking">Tracking</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_fix_now">Fix Now</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_flag_down">Flag Down</string>
+    <string name="action_start">Start</string>
+    <string name="action_submit">Submit</string>
+    <string name="action_forgot_password">Forgot Password?</string>
+    <string name="action_tnc"><![CDATA[Terms & Conditions]]></string>
+    <string name="action_privacy_policy">Privacy Policy</string>
+    <string name="action_login">Login</string>
+    <string name="action_signup">Signup Now</string>
+    <string name="action_start_ride">Start Ride</string>
+    <string name="action_add_expense">Add Expense</string>
+    <string name="action_request_payment">Request Payment</string>
+    <string name="action_select_date">Select date</string>
+    <string name="action_accept_booking">Accept Booking</string>
+    <string name="action_bid_for_booking">Bid for this booking</string>
+    <string name="action_accept">Accept</string>
+    <string name="action_archive">Archive</string>
+    <string name="action_view_pdf">View PDF</string>
+    <string name="action_add_signature">Add Signature</string>
+    <string name="action_acknowledge">Acknowledge</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_change">Change</string>
+    <string name="action_i_agree">I Agree</string>
+    <string name="action_save">Save</string>
+    <string name="action_location_settings">Location Settings</string>
+    <string name="action_reject">Reject</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_no">No</string>
+    <string name="action_save_password">Save Password</string>
+    <string name="action_close">Close</string>
+    <string name="action_start_ride_later">Start ride later</string>
+    <string name="action_apply">Apply</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_chat">Chat</string>
+    <string name="action_asap">Asap</string>
+    <string name="action_allow">Allow</string>
+    <string name="action_sent">Sent</string>
+    <string name="action_deny">Deny</string>
+    <string name="action_restart">Restart</string>
+    <string name="action_reload">Reload</string>
+    <string name="action_add">Add</string>
+
+    <string name="title_alert">Alert</string>
+    <string name="title_error">Error</string>
+    <string name="title_image_chooser">Image Chooser</string>
+    <string name="title_file_chooser">File Chooser</string>
+    <string name="title_home">Home</string>
+    <string name="title_upcoming">Upcoming</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_bids">Job Pool</string>
+    <string name="title_history">History</string>
+    <string name="title_payments">Payments</string>
+    <string name="title_payment_summary">Summary</string>
+    <string name="title_vehicles">Vehicles</string>
+    <string name="title_display">Display</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_menu">Menu</string>
+    <string name="title_personal_info">Personal Info</string>
+    <string name="title_account_info">Account Info</string>
+    <string name="title_payment_cards">Payment Cards</string>
+    <string name="title_payment_add_card">Add Payment Card</string>
+    <string name="title_change_password">Change Password</string>
+    <string name="title_bank_info">Bank Info</string>
+    <string name="title_tags">Tags</string>
+    <string name="title_add_expense">Add Expense</string>
+    <string name="title_activity_flag_down">Enter Location</string>
+    <string name="title_booking_alert">Booking Alert</string>
+    <string name="title_biometric">Biometric</string>
+    <string name="title_notification">Notification</string>
+    <string name="title_notification_settings">Notification Settings</string>
+    <string name="title_app_diagnostics">App Diagnostics</string>
+
+    <string name="permission_title_gps">Enable GPS</string>
+    <string name="permission_title_location">Enable Geolocation</string>
+    <string name="permission_title_notification">Enable Notifications</string>
+    <string name="permission_title_battery">Enable Battery Optimization</string>
+    <string name="permission_title_overlay">Enable Draw Overlay</string>
+    <string name="permission_title_audio">Enable Microphone</string>
+
+    <string name="permission_summary_location">By allowing geolocation we track you through your job and assign booking nearer to you.</string>
+    <string name="permission_summary_notification">Enable notifications so that you don\'t miss any booking offers near you.</string>
+    <string name="permission_summary_battery">Enable Battery Optimization</string>
+    <string name="permission_summary_overlay">Enable Draw Overlay</string>
+    <string name="permission_summary_audio">Enable Microphone</string>
+
+    <string name="menu_item_history">History</string>
+    <string name="menu_item_payments">Payments</string>
+    <string name="menu_item_profile">Profile</string>
+    <string name="menu_item_settings">Settings</string>
+    <string name="menu_item_feedback">Feedback</string>
+    <string name="menu_item_logout">Logout</string>
+
+    <string name="menu_item_display">Display</string>
+    <string name="menu_item_vehicles">Vehicles</string>
+    <string name="menu_item_biometric">Biometric</string>
+    <string name="menu_item_navigation">Navigation</string>
+    <string name="menu_item_test_notification">Test Notification</string>
+    <string name="menu_item_notifications">Notifications</string>
+    <string name="menu_item_diagnostics">Diagnostics</string>
+
+    <string name="payment_mode_on_account">OnAccount</string>
+    <string name="payment_mode_cash_booking">Cash Booking</string>
+    <string name="payment_mode_card_booking">Card Booking</string>
+    <string name="payment_mode_in_car">In-Car Payment</string>
+    <string name="payment_mode_other">Other</string>
+
+    <string name="display_mode_auto">Automatic</string>
+    <string name="display_mode_light">Light Mode</string>
+    <string name="display_mode_dark">Dark Mode</string>
+
+    <string name="display_mode_auto_summary">Display mode will automatically change as per system preference</string>
+    <string name="display_mode_light_summary">Display preferred during day time</string>
+    <string name="display_mode_dark_summary">Display preferred during night time, battery friendly</string>
+
+    <string name="dialog_title_select_date">Select date</string>
+    <string name="dialog_title_ack_booking">Please Confirm</string>
+    <string name="dialog_title_are_you_sure">Are you sure?</string>
+    <string name="dialog_title_warning">Warning</string>
+    <string name="dialog_title_location_access">Location Access</string>
+    <string name="dialog_msg_booking_allocated">Booking allocated</string>
+    <string name="dialog_title_update_not_allowed">Update Not Allowed</string>
+    <string name="dialog_title_vehicle_update_confirm">You want to update the vehicle?</string>
+    <string name="dialog_title_update_email">Update Email</string>
+    <string name="dialog_title_bid_cancelled">Bid Cancelled!</string>
+    <string name="dialog_title_no_internet">No Internet?</string>
+    <string name="dialog_title_out_of_sync">Sync app state</string>
+
+    <string name="dialog_msg_ack_booking">On clicking this button, you are acknowledging the job.</string>
+    <string name="dialog_msg_start_as_directed_booking">You want to start an <b>As Directed</b> booking.</string>
+    <string name="dialog_msg_start_flag_down_booking">You want to start a booking.</string>
+    <string name="dialog_msg_start_ride">This booking will be marked <b>EnRoute</b></string>
+    <string name="dialog_msg_unsupported_web_message">This version of WebView does not support Cab9Go feature. Please update current WebView framework from PlayStore.</string>
+    <string name="dialog_msg_location_access">We collect your location in foreground and background to track you and provide the nearest booking as per your location. Please tap on I agree to continue.</string>
+
+    <string name="dialog_title_shift_end_time">Estimated Shift End Time</string>
+    <string name="dialog_subtitle_shift_time_end">Please enter an estimated shift end time which will be used for planning and dispatching bookings.</string>
+
+    <string name="dialog_msg_job_cancelled">Job you are currently viewing is cancelled. Please go back and view new bids.</string>
+    <string name="dialog_msg_accept_bid">By clicking on Confirm button, you are accepting the bidding.</string>
+
+    <string name="dialog_title_bid_expired">Bidding Expired</string>
+    <string name="dialog_msg_bid_expired">You can no longer bid for this booking.</string>
+
+    <string name="dialog_title_reset_password">Request Submitted</string>
+    <string name="dialog_msg_reset_password">An email has been sent to your registered email id, please click on the link reset your password</string>
+
+    <string name="dialog_title_get_notified">Get Notified!</string>
+    <string name="dialog_msg_notification_off">Stay on top of booking offers and other related notifications.</string>
+
+    <string name="dialog_title_use_speech">Speech Recognizer!</string>
+    <string name="dialog_msg_use_speech">Allowing %s to accept or reject booking offers via voice command.</string>
+
+    <string name="dialog_title_draw_over">Permit drawing over other apps!</string>
+    <string name="temp_dialog_msg_draw_over">Allowing %s to display on top of over other apps you are using may interfere with your use of the interface in other applications.</string>
+
+    <string name="dialog_title_battery_optimize">Let the app always run in background?</string>
+    <string name="temp_dialog_msg_battery_optimize">Allowing %s to always run in the background may reduce battery life. You can change this later from <b>Settings > Apps</b></string>
+
+    <string name="dialog_title_location_data">Access Location data</string>
+    <string name="temp_dialog_msg_location_data">To enable feature like navigation, tracking and allocate booking offers, %s requires access to your location data when in background or closed.</string>
+
+    <string name="dialog_title_booking_unallocated">Booking unallocated!</string>
+    <string name="dialog_title_booking_cancelled">Booking cancelled!</string>
+    <string name="dialog_msg_booking_cancelled">Booking you are currently viewing is cancelled. Please go back and view new bookings.</string>
+
+    <string name="dialog_title_unlock_with_biometric">Unlock with biometric</string>
+    <string name="dialog_msg_unlock_with_biometric">Do you want to enable biometric login?</string>
+
+    <string name="dialog_title_set_auto_date_time">Enable Automatic Date time settings!</string>
+    <string name="dialog_msg_set_auto_date_time">Allowing %s to set the automatic date time in the device for better performance of the app.</string>
+
+    <string name="dialog_title_gps_request">Access Device Location</string>
+    <string name="dialog_msg_gps_request">To enable feature like navigation, tracking and allocate booking offers, %s requires your device location to be turned on every time.</string>
+
+    <string name="dialog_title_test_notification">Test Notification</string>
+    <string name="dialog_msg_test_notification">Did\'nt receive any notification yet? Please kill and restart the app to check again.</string>
+
+    <string name="action_adjust_date">Adjust Date</string>
+    <string name="title_date_mismatch">Inaccurate Date</string>
+    <string name="msg_time_zone_mismatch">The time on your phone does\'t match the timezone, which may cause problems with using the app. To avoid this, please set your date and time to an automated setting through your network.</string>
+
+    <string name="dialog_msg_swipe_confirm">By clicking on Confirm button, you are accepting the bidding</string>
+
+    <string name="err_msg_generic">Something went wrong!</string>
+    <string name="err_msg_check_internet">Please check your Internet connection</string>
+    <string name="err_msg_no_internet">Slow or no internet connection. Please check your internet settings.</string>
+    <string name="err_msg_unauthorized">Your token have expired, please try login again!</string>
+    <string name="err_no_email_app_found">No Email app found to submit your feedback</string>
+    <string name="err_app_not_found">Application not found</string>
+
+    <string name="err_title_user_blocked">Blocked!</string>
+    <string name="err_title_no_internet">No Internet</string>
+    <string name="err_title_unauthorised">Unauthorized Access</string>
+
+    <string name="err_no_file_access">Please allow all permission</string>
+    <string name="err_invalid_username">Enter valid username</string>
+    <string name="err_invalid_password">Enter valid password</string>
+    <string name="err_invalid_email">Enter valid email</string>
+    <string name="err_invalid_mobile">Enter valid mobile number</string>
+    <string name="err_password_mismatch">Password confirmation does not match</string>
+    <string name="err_same_number">New and old mobile number is same</string>
+    <string name="err_empty_password">Password cannot be empty</string>
+    <string name="err_wrong_current_password">Please enter valid current password</string>
+
+    <string name="err_no_shift_time">Shift time not found!</string>
+    <string name="err_no_pickup_location">Error fetching the current location, please try again</string>
+    <string name="err_start_ride_no_location">Error starting ride, please try again</string>
+    <string name="err_start_ride_offline">Cannot start ride unless you are online</string>
+    <string name="err_job_acknowledge">Error occurred while Acknowledging the booking</string>
+    <string name="err_current_location">Unable to find current location!</string>
+    <string name="err_job_expired">Bid expired!</string>
+    <string name="err_invalid_interval">Invalid interval selected</string>
+    <string name="err_no_data">No data found</string>
+    <string name="err_invalid_position">Item not found</string>
+    <string name="err_invalid_location">Location not found</string>
+    <string name="err_message_empty">Message cannot be empty</string>
+    <string name="err_message_adding">Error adding new quick message, please try again</string>
+    <string name="err_message_loading">Error fetching quick messages, please try again</string>
+    <string name="err_message_deleting">Error deleting the quick message, please try again</string>
+    <string name="err_message_retry">Error sending message, please check your internet connection or try after sometime</string>
+    <string name="err_message_conversation">Unable to load chat, please try again</string>
+    <string name="err_message_quick_message_fetch">failed to load quick messages, please try again</string>
+
+    <string name="err_select_expense_type">Please select expense type</string>
+    <string name="err_enter_expense_amount">Please enter valid amount</string>
+    <string name="err_uploading_signature">Error uploading Signature</string>
+
+    <string name="err_bid_amount_higher">You cannot bid for an amount higher than the base price</string>
+    <string name="err_invalid_bid_amount">Please enter valid amount</string>
+    <string name="err_chat_msg_send_failed">Couldn\'t send, Tap to retry</string>
+
+    <string name="err_sumup_token_not_found">We are not able to connect with Sumup now, try later!</string>
+    <string name="err_sumup_not_available">SumUp payment not available!</string>
+    <string name="err_sumup_login_failed">Unable to access Sumup account</string>
+    <string name="err_sumup_minimum_amount">Minimum amount should be £1.0</string>
+    <string name="err_sumup_mode_not_defined">Sumup mode not defined! Please contact provider</string>
+    <string name="err_sumup_payment_data_not_defined">Cannot determine payment detail, try again later!</string>
+    <string name="err_sumup_app_not_installed">SumUp application not found</string>
+
+    <string name="err_upload_chat_image">Error uploading image, please try again!</string>
+    <string name="err_chat_image_upload_in_progress">Image upload is in progress, please wait</string>
+    <string name="err_chat_message_empty">message cannot be empty!</string>
+    <string name="err_conversation_empty">Error loading chat messages!</string>
+
+    <string name="login_here">Login Here</string>
+    <string name="don_t_worry">Don\'t worry,</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="not_available">NA</string>
+    <string name="saving">Saving…</string>
+    <string name="header_submit_bid">Submit your bid</string>
+    <string name="showing">Showing \u0020</string>
+
+    <string name="hint_company_code">Company code (Optional)</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_search_address">Search Address</string>
+    <string name="hint_current_password">Current Password</string>
+    <string name="hint_new_password">New Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="hint_bank_name">Bank Name</string>
+    <string name="hint_sort_code">Sort Code</string>
+    <string name="hint_account_number">Account Number</string>
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_last_name">Last Name</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_mobile_number">Mobile Number</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_select_expense_type">Select expense type</string>
+    <string name="hint_notes">Notes</string>
+    <string name="hint_min_amount">00.00</string>
+
+    <string name="label_job_in_progress">Job In Progress</string>
+    <string name="label_bookings">Bookings</string>
+    <string name="label_time_online">Time Online</string>
+    <string name="label_status">Status</string>
+    <string name="label_break">Break</string>
+    <string name="label_you_are_online">You are online</string>
+    <string name="label_allocation_break">Allocation Break</string>
+    <string name="label_offline">Offline</string>
+    <string name="label_now">Now</string>
+    <string name="label_15m">15m</string>
+    <string name="label_30m">30m</string>
+    <string name="label_45m">45m</string>
+    <string name="label_60m">60m</string>
+    <string name="label_cars">Cars</string>
+    <string name="label_area">Area</string>
+    <string name="label_na">NA</string>
+    <string name="label_swipe_to_change_your_status">Swipe to change your status</string>
+    <string name="label_end_shift">Est. Shift End</string>
+    <string name="label_earning">Earnings</string>
+    <string name="label_as_directed">As Directed</string>
+    <string name="label_pickup_time">Pickup Time</string>
+    <string name="label_passenger_name">Passenger Name</string>
+    <string name="label_client_name">Client Name</string>
+    <string name="label_passengers">Passengers</string>
+    <string name="label_bags">Bags</string>
+    <string name="label_vehicle_type">Vehicle Type</string>
+    <string name="label_pickup">Pickup</string>
+    <string name="label_drop">Drop</string>
+    <string name="label_stop">Stop</string>
+    <string name="label_notes">Notes</string>
+    <string name="label_flight_number">Flight Number</string>
+    <string name="label_arriving_from">Arriving From</string>
+    <string name="label_payment_mode">Payment Mode</string>
+    <string name="label_cost_breakdown">Cost Breakdown</string>
+    <string name="label_actual_cost">Actual Cost</string>
+    <string name="label_total">Total</string>
+    <string name="label_receive_from_company">Receive From Company</string>
+    <string name="label_booking_commission">Booking Commission</string>
+    <string name="label_bonus_amount">Bonus Amount</string>
+    <string name="label_adjustments">Adjustments</string>
+    <string name="label_pay_to_company">Pay To Company</string>
+    <string name="label_total_receivable">Total Receivable</string>
+    <string name="label_information">Information</string>
+    <string name="label_profile_info">Profile Info</string>
+    <string name="label_account_info">Account Info</string>
+    <string name="label_payment_cards">Payment Cards</string>
+    <string name="label_about">About</string>
+    <string name="label_customer_signature">Customer Signature</string>
+    <string name="label_expenses">Expenses</string>
+    <string name="label_pickup_location">Pickup Location</string>
+    <string name="label_drop_location">Drop Location</string>
+    <string name="label_distance">Distance</string>
+    <string name="label_commission">Commission</string>
+    <string name="label_total_waiting_cost">Total Waiting Cost</string>
+    <string name="label_taxes_amp_charges"><![CDATA[Taxes & Charges]]></string>
+    <string name="label_to_company">To Company</string>
+    <string name="label_shift_end">Shift End</string>
+    <string name="label_sign_here">Please sign here</string>
+    <string name="label_auto_dispatch_pickup_time">Auto Dispatch Pickup Time</string>
+    <string name="label_auto_dispatch_pickup_distance">Auto Dispatch Pickup Distance</string>
+    <string name="label_summary_drop_location">Enter the drop off location of your passenger to get navigation assistance.</string>
+    <string name="label_imp_note">Important Note</string>
+    <string name="label_offer">Offer</string>
+    <string name="label_new_offer_alert">New Booking offer Alert</string>
+    <string name="label_in_miles">(in miles)</string>
+    <string name="label_in_minutes">(in minutes)</string>
+    <string name="label_enter_expense_amount">Please enter the expense amount</string>
+    <string name="label_enter_amount">Please enter the amount</string>
+    <string name="label_remember_me">Remember Me</string>
+    <string name="label_enable_biometric_login">Enable Biometric login</string>
+    <string name="label_choose_rejection_reason">Choose cancel reason</string>
+    <string name="label_enable_notification">Enable Bidding Notification</string>
+    <string name="label_quick_message">Quick Message</string>
+    <string name="label_add_quick_message">Add Message</string>
+    <string name="label_fetching_data">Fetching data...</string>
+
+    <string name="interval_15_mins"><![CDATA[< 15 mins]]></string>
+    <string name="internal_30_mins">30 mins</string>
+    <string name="interval_1_hour">1 hour</string>
+    <string name="interval_2_hour">2 hour</string>
+
+    <string name="bid_type_recent">Recent</string>
+    <string name="bid_type_archived">Archived</string>
+    <string name="bid_type_all">All</string>
+    <string name="bid_type_submitted">Selected</string>
+    <string name="bid_type_nearby">Nearest</string>
+
+    <string name="status_approved">Approved</string>
+    <string name="status_declined">Declined</string>
+    <string name="status_pending">Pending</string>
+
+    <string name="no_vehicles">No Vehicles</string>
+    <string name="no_tags">No Tags found</string>
+    <string name="no_bookings">No Bookings</string>
+    <string name="no_new_bids">No New Jobs</string>
+    <string name="no_archived">No Archived Jobs</string>
+    <string name="no_submitted">No Submitted Jobs</string>
+    <string name="no_recent">No Recent Jobs</string>
+    <string name="no_nearby_jobs">No Nearby Jobs</string>
+    <string name="no_payments">No Payments</string>
+    <string name="no_location">No Location</string>
+    <string name="no_payment_cards">No Payment Cards</string>
+    <string name="no_quick_messages">No Quick messages found</string>
+    <string name="no_chat">No Messages</string>
+
+    <string name="msg_driver_online">You are online</string>
+    <string name="msg_driver_offline">You are offline</string>
+    <string name="msg_driver_on_job">You are on job</string>
+    <string name="msg_driver_on_break">You are on break</string>
+
+    <string name="msg_no_vehicles">No vehicles found under your profile.</string>
+    <string name="msg_no_history_bookings">No history bookings found at this moment</string>
+    <string name="msg_empty_upcoming_bookings">No upcoming bookings allocated at this moment</string>
+    <string name="msg_bidding_job_allocated">No new jobs found at this moment</string>
+    <string name="msg_archived_job_allocated">No Archived Jobs found at this moment</string>
+    <string name="msg_submitted_job_allocated">No Submitted Jobs found at this moment</string>
+    <string name="msg_recent_job_allocated">No Recent Jobs found at this moment</string>
+    <string name="msg_nearby_job_allocated">No Nearby Jobs found at this moment</string>
+    <string name="msg_start_ride_early">To early to start the job.</string>
+    <string name="msg_open_pdf">For more details or any tax related information please view the PDF below.</string>
+    <string name="msg_job_acknowledged">You have Acknowledged the job</string>
+    <string name="msg_empty_payment_data">Payment data not found for this period</string>
+    <string name="msg_turn_on_location">Location not detected. Please turn on the device location.</string>
+    <string name="msg_allow_gps_permission">Location permission denied. Please allow to access your location while you use the app.</string>
+    <string name="msg_expense_approval">Expense added here needs to be approved first then gets reimbursed.</string>
+    <string name="msg_enable_biometric_login">When enabled, you\'ll need to use biometric security to open the app.</string>
+    <string name="msg_enable_bidding_notification">When enabled, you receive in-app notification sound on every new job bids are allocated. You will however receive notification sound for every new bid when app in background irrespective or this settings.</string>
+    <string name="msg_empty_chat">No chat message found at this moment</string>
+
+    <string name="msg_empty_payment_cards">No saved payment cards found</string>
+    <string name="msg_new_bid_available">New bid available</string>
+    <string name="msg_bid_cancelled">Job bid cancelled!</string>
+    <string name="msg_offer_expired">Booking Offer has been expired</string>
+    <string name="msg_set_for_notification">You are all set to receive notification</string>
+    <string name="msg_password_updated">Password updated successful</string>
+    <string name="msg_booking_rejected">Booking Rejected</string>
+    <string name="msg_booking_accepted">Booking Accepted</string>
+
+    <string name="msg_cannot_logout_on_job">You can\'t logout while onJob</string>
+    <string name="msg_cannot_logout_on_shift">You can\'t logout while on shift</string>
+    <string name="msg_cannot_logout_on_break">You can\'t logout while on break</string>
+
+    <string name="msg_change_password">Your password should contain at least 6 characters</string>
+    <string name="msg_change_password_not_allowed">You cannot change password when online.</string>
+    <string name="msg_min_password_length">Password should be at least 6 characters</string>
+
+    <string name="msg_bid_archived_success">Bid archived successfully</string>
+    <string name="msg_bid_submit_success">Bid submitted successfully</string>
+
+    <string name="msg_vehicle_update_not_allowed_job">Vehicle change is not allowed when you are on trip</string>
+    <string name="msg_vehicle_update_not_allowed_online">Please end your shift to update the vehicle</string>
+    <string name="msg_vehicle_update_confirm_message">Your vehicle will be updated and applied on your next shift.</string>
+
+    <string name="msg_offer_accepted_on_job">You have accepted this booking and it will be available in upcoming bookings sections!</string>
+    <string name="msg_sumup_not_available">SumUp payment not available!</string>
+
+    <string name="msg_login_here">Please enter your login details below and lets start driving</string>
+    <string name="msg_forgot_password">Please enter your username and we will send a link to you</string>
+    <string name="msg_reset_password">You can reset your password by clicking on the link</string>
+
+    <string name="msg_refresh_mobile_state">App state changed, please refresh again to update</string>
+    <string name="msg_terms_of_signature">By signing above you agree to our all ride charges and terms and conditions.</string>
+
+    <string name="msg_offer_accepted">You have accepted this booking and it will be available in upcoming bookings sections!</string>
+    <string name="msg_signature_added">Customer Signature has been successfully added</string>
+    <string name="msg_submit_bid_note">By submitting the amount you have agreed to do the job request for the amount entered above</string>
+
+    <string name="msg_sumup_start_login">Preparing for SumUp login session, please wait…</string>
+    <string name="msg_sumup_login_done">SumUp login done, please try taking payment again</string>
+
+    <string name="msg_biometric_enabled_successfully">Biometric enabled successfully</string>
+    <string name="msg_login_success">Login successful</string>
+
+    <string name="msg_heatmap_zoom">Heat map works best on certain zoom level, please zoom out to view.</string>
+    <string name="msg_app_update_downloaded">Update downloaded.</string>
+
+    <string name="biometric_dialog_title_confirm">Confirm biometric</string>
+    <!--<string name="biometric_dialog_desc_confirm">Touch the fingerprint sensor</string>-->
+    <string name="biometric_dialog_title_login">Scan to login</string>
+    <string name="biometric_dialog_negative_text">Use Password</string>
+
+    <string name="pound_symbol">\u00a3</string>
+    <string name="temp_amount_in_currency">\u00a3%.2f</string>
+    <string name="temp_action_bid_for_booking">Bid for less than %s</string>
+    <string name="temp_msg_allocation_break">Due to your recent lack of availability for the booking offers sent, the system has enabled an allocation break on your profile. This will be reset in %d minutes.</string>
+
+    <string name="temp_total_waiting_time_cost_label">Total Waiting Cost (%s)</string>
+    <string name="temp_week_name">Week %d</string>
+    <string name="temp_mile">%.1f mi</string>
+    <string name="temp_bid_amount">Please enter amount less than %s</string>
+
+    <string name="zero_mins">0 mins</string>
+    <plurals name="pl_zero_mins">
+        <item quantity="zero">@string/zero_mins</item>
+        <item quantity="one">1 min</item>
+        <item quantity="other">%d mins</item>
+    </plurals>
+
+    <string name="zero_secs">0 secs</string>
+    <plurals name="pl_zero_secs">
+        <item quantity="zero">@string/zero_secs</item>
+        <item quantity="one">1 sec</item>
+        <item quantity="other">%d secs</item>
+    </plurals>
+
+    <string name="zero_stop">0 stops</string>
+    <plurals name="pl_stops">
+        <item quantity="zero">@string/zero_stop</item>
+        <item quantity="one">+1 stop</item>
+        <item quantity="other">+%d stops</item>
+    </plurals>
+
+    <string name="zero_wait_time_label">Waiting Time (0 mins)</string>
+    <plurals name="pl_wait_time_label">
+        <item quantity="zero">@string/zero_wait_time_label</item>
+        <item quantity="one">Waiting Time (1 min)</item>
+        <item quantity="other">Waiting Time (%d mins)</item>
+    </plurals>
+
+    <string name="zero_min_duration_label">0 mins away</string>
+    <plurals name="pl_min_duration_label">
+        <item quantity="zero">@string/zero_min_duration_label</item>
+        <item quantity="one">1 min away</item>
+        <item quantity="other">%d mins away</item>
+    </plurals>
+
+    <string name="zero_min_trip_label">0 mins trip</string>
+    <plurals name="pl_min_trip_label">
+        <item quantity="zero">@string/zero_min_trip_label</item>
+        <item quantity="one">1 min trip</item>
+        <item quantity="other">%d mins trip</item>
+    </plurals>
+
+    <string name="zero_min_drop_off_duration_label">0 mins trip</string>
+    <plurals name="pl_drop_off_min_duration_label">
+        <item quantity="zero">@string/zero_min_drop_off_duration_label</item>
+        <item quantity="one">1 min trip</item>
+        <item quantity="other">%d mins trip</item>
+    </plurals>
+
+    <string name="zero_min_pickup_duration_label">0 mins away</string>
+    <plurals name="pl_pickup_min_duration_label">
+        <item quantity="zero">@string/zero_min_pickup_duration_label</item>
+        <item quantity="one">1 min away</item>
+        <item quantity="other">%d mins away</item>
+    </plurals>
+
+    <string name="zero_stop_count">0 stops</string>
+    <string name="label_listening">Listening…</string>
+    <string name="label_journey_total">Journey Total</string>
+    <string name="label_meter_running">Meter Running</string>
+    <string name="login_using_biometric">Login using Biometric</string>
+    <plurals name="pl_stop_count">
+        <item quantity="zero">@string/zero_stop_count</item>
+        <item quantity="one">1 stop</item>
+        <item quantity="other">%d stops</item>
+    </plurals>
+
+    <string name="temp_version">v%s</string>
+    <string name="temp_zone_rank">Rank: %d</string>
+    <string name="temp_zone_distance">%.2f mi.</string>
+    <string name="temp_actual_distance">Actual Distance: %s mi</string>
+    <string name="temp_waiting_cost">Includes Waiting: %s</string>
+
+    <string name="label_default_timer_text">00:00:00</string>
+    <string name="label_connected">Connected</string>
+
+    <string name="label_checking_all_settings">Checking all settings</string>
+    <string name="label_checking_settings_summary">We will check if all necessary settings are enabled</string>
+
+    <string name="label_network_settings">Network Settings</string>
+    <string name="label_sound_settings">Sound Settings</string>
+    <string name="label_notification_settings">Notification Settings</string>
+    <string name="label_battery_optimisation">Battery Optimisation</string>
+    <string name="label_sending_test_notification">Sending Test Notification</string>
+    <string name="label_draw_overlay">System Draw Overlay</string>
+
+    <string name="title_check_notification">Checking Notification Settings…</string>
+    <string name="title_check_sound">Checking Sound Settings…</string>
+    <string name="title_check_battery">Checking Battery Settings…</string>
+    <string name="title_send_test_notification">Sending Test Notification…</string>
+    <string name="title_check_draw_overlay">Checking System Draw Settings…</string>
+    <string name="title_check_internet">Checking Internet connectivity…</string>
+
+    <string name="label_notifications_enabled">Notifications are enabled</string>
+    <string name="label_volume_enabled">Volume level looks good</string>
+    <string name="label_battery_enabled">Battery Optimisation is enabled</string>
+    <string name="label_draw_overlay_enabled">System Draw is enabled</string>
+    <string name="label_swipe_next">Swipe left to see next</string>
+
+    <string name="please_wait">Please wait…</string>
+    <string name="label_not_getting_notifications">Not getting any notifications?</string>
+    <string name="action_test_now">Test Now</string>
+    <string name="msg_new_notification">New Notification</string>
+    <string name="hint_type_message">Start typing…</string>
+    <string name="hint_type_quick_message">Enter your message</string>
+    <string name="label_user_typing">%s is typing</string>
+
+    <string name="you">You</string>
+
+    <string name="notification_title_booking_offer">New Booking Offer</string>
+    <string name="notification_msg_booking_offer">Tap to show fullscreen</string>
+    <string name="label_pre_booked">PRE-BOOKED</string>
+    <string name="label_empty">…</string>
+
+</resources>

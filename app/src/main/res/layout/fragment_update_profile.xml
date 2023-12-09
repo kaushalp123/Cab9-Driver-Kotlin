@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.cab9.driver.ui.account.profile.ProfileViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_tint_color_3"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/common_margin">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_first_name"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/SFProSemiBoldFontStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@{viewModel.firstname}"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_regular"
+                tools:text="@tools:sample/first_names" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@color/bg_tint_color_3"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/common_margin">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_last_name"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/SFProSemiBoldFontStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@{viewModel.lastName}"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_regular"
+                tools:text="@tools:sample/last_names" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@color/bg_tint_color_3"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/common_margin">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/SFProRegularFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_address"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/SFProSemiBoldFontStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@{viewModel.address}"
+                android:textColor="@color/text_color_1"
+                android:textSize="@dimen/text_size_regular"
+                tools:text="@tools:sample/cities" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@color/bg_tint_color_3"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/common_margin"
+                android:layout_marginStart="@dimen/common_margin"
+                android:layout_weight="8"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/SFProRegularFontStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint_mobile_number"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_small" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputMobileNumber"
+                    style="@style/Widget.Design.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:enabled="false"
+                    app:hintAnimationEnabled="false"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtMobileNumber"
+                        style="@style/SFProSemiBoldFontStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:inputType="phone"
+                        android:text="@{viewModel.mobileNumber}"
+                        android:textColor="@color/text_color_1"
+                        android:textSize="@dimen/text_size_regular"
+                        tools:text="@tools:sample/us_phones" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_update_mobile_number"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/action_edit" />
+
+                <ProgressBar
+                    android:id="@+id/pBar_update_mobile"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:visibility="invisible" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

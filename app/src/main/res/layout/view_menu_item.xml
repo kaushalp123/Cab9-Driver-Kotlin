@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/common_margin">
+
+        <ImageView
+            android:id="@+id/img_menu_item_icon"
+            android:layout_width="@dimen/menu_item_icon_size"
+            android:layout_height="@dimen/menu_item_icon_size"
+            android:contentDescription="@null"
+            app:tint="@color/icon_tint_common"
+            tools:src="@drawable/ic_history" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lbl_menu_item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/common_margin"
+            android:layout_weight="1"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/text_size_vlarge"
+            tools:text="History" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_arrow_forward"
+            app:tint="@color/icon_tint_common" />
+
+    </LinearLayout>
+</merge>

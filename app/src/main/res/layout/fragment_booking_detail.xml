@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.cab9.driver.ui.booking.detail.BookingDetailViewModel" />
+
+        <variable
+            name="listener"
+            type="com.cab9.driver.ui.booking.detail.BookingDetailScreenClickListener" />
+    </data>
+
+    <com.cab9.driver.widgets.ReactiveLayout
+        android:id="@+id/rlBookingDetailMain"
+        state="@{viewModel.bookingDetailOutcome}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/common_view_padding"
+            android:orientation="vertical"
+            android:tag="@string/v_tag_complete">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/common_view_padding"
+                android:layout_weight="1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/img_booking_detail_map"
+                        mapImageUrl="@{viewModel.routeImgUrl}"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:contentDescription="@null"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintDimensionRatio="4:3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/img_map_placeholder" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_ack_booking"
+                        style="@style/Widget.Cab9Driver.Button.TonalButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/btn_height"
+                        android:layout_marginHorizontal="@dimen/common_margin"
+                        android:layout_marginTop="@dimen/common_view_padding"
+                        android:onClick="@{()->listener.onAcknowledgeBooking()}"
+                        android:text="@string/action_acknowledge"
+                        android:visibility="@{viewModel.acknowledgeVisibility}"
+                        app:layout_constraintTop_toBottomOf="@id/img_booking_detail_map" />
+
+                    <include
+                        android:id="@+id/card_booking_detail"
+                        layout="@layout/view_booking_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/common_margin"
+                        android:layout_marginTop="@dimen/common_view_padding"
+                        app:layout_constraintTop_toBottomOf="@id/btn_ack_booking"
+                        bind:viewModel="@{viewModel}" />
+
+                    <include
+                        android:id="@+id/card_upcoming_breakdown"
+                        layout="@layout/view_booking_upcoming_cost_breakdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/common_margin"
+                        android:layout_marginTop="@dimen/common_view_padding"
+                        android:visibility="@{viewModel.upcomingBooking ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintTop_toBottomOf="@id/card_booking_detail"
+                        bind:viewModel="@{viewModel}" />
+
+                    <include
+                        android:id="@+id/card_cost_breakdown"
+                        layout="@layout/view_booking_cost_breakdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/common_margin"
+                        android:layout_marginTop="@dimen/common_view_padding"
+                        android:visibility="@{viewModel.costBreakdownVisibility}"
+                        app:layout_constraintTop_toBottomOf="@id/card_upcoming_breakdown"
+                        bind:viewModel="@{viewModel}" />
+
+                    <include
+                        android:id="@+id/card_customer_sig"
+                        layout="@layout/view_customer_signature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/common_margin"
+                        android:layout_marginTop="@dimen/common_view_padding"
+                        android:visibility="@{viewModel.customerSigContainerVisibility}"
+                        app:layout_constraintTop_toBottomOf="@id/card_cost_breakdown"
+                        bind:listener="@{listener}"
+                        bind:viewModel="@{viewModel}" />
+
+                    <include
+                        android:id="@+id/card_booking_expenses"
+                        layout="@layout/view_booking_expenses"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/common_margin"
+                        android:layout_marginTop="@dimen/common_view_padding"
+                        android:visibility="@{viewModel.expenseContainerVisibility}"
+                        app:layout_constraintTop_toBottomOf="@id/card_customer_sig"
+                        bind:viewModel="@{viewModel}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_start_ride"
+                state="@{viewModel.canStartRideOutcome}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginHorizontal="@dimen/common_margin"
+                android:onClick="@{()->listener.canStartRide()}"
+                android:text="@string/action_start_ride"
+                android:visibility="@{viewModel.upcomingBooking ? View.VISIBLE: View.GONE}" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/common_margin"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_request_payment"
+                    style="@style/Widget.Cab9Driver.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_marginEnd="@dimen/common_margin_half"
+                    android:layout_weight="1"
+                    android:onClick="@{()->listener.requestPayment()}"
+                    android:text="@string/action_request_payment"
+                    android:visibility="@{viewModel.requestPaymentBtnVisibility}"
+                    app:layout_constraintEnd_toStartOf="@id/btn_add_expense"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_goneMarginEnd="0dp" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_add_expense"
+                    style="@style/Widget.Cab9Driver.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_marginStart="@dimen/common_margin_half"
+                    android:layout_weight="1"
+                    android:onClick="@{()->listener.addExpense()}"
+                    android:text="@string/action_add_expense"
+                    android:visibility="@{viewModel.addExpenseBtnVisibility}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_request_payment"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_goneMarginStart="0dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <include layout="@layout/shimmer_booking_detail_loading" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:tag="@string/v_tag_loading_overlay"
+            android:visibility="gone" />
+
+    </com.cab9.driver.widgets.ReactiveLayout>
+</layout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/common_margin">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_submit_bid_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:text="@string/header_submit_bid"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_xlarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_bid_actual_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:textColor="@color/text_color_2"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_submit_bid_header"
+        tools:text="$90.00" />
+
+    <EditText
+        android:id="@+id/txt_bid_auction_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:background="@drawable/bg_rounded_corner_border_8dp"
+        android:gravity="center"
+        android:hint="@string/hint_min_amount"
+        android:inputType="numberDecimal"
+        android:minWidth="100dp"
+        android:padding="@dimen/common_view_padding"
+        android:textColor="@color/text_color_1"
+        android:textSize="50sp"
+        app:fontFamily="@font/sf_pro_display_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_bid_actual_amount" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_minus_amount"
+        android:layout_width="@dimen/zonal_btn_size"
+        android:layout_height="@dimen/zonal_btn_size"
+        android:layout_marginEnd="@dimen/common_margin_2x"
+        android:background="@drawable/bg_circular_with_border"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:padding="13dp"
+        android:src="@drawable/ic_minus"
+        app:layout_constraintBottom_toBottomOf="@id/txt_bid_auction_amount"
+        app:layout_constraintEnd_toStartOf="@id/txt_bid_auction_amount"
+        app:layout_constraintTop_toTopOf="@id/txt_bid_auction_amount"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular"
+        app:tint="@color/brand_color" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_add_amount"
+        android:layout_width="@dimen/zonal_btn_size"
+        android:layout_height="@dimen/zonal_btn_size"
+        android:layout_marginStart="@dimen/common_margin_2x"
+        android:background="@drawable/bg_circular_with_border"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:padding="13dp"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintBottom_toBottomOf="@id/txt_bid_auction_amount"
+        app:layout_constraintStart_toEndOf="@id/txt_bid_auction_amount"
+        app:layout_constraintTop_toTopOf="@id/txt_bid_auction_amount"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular"
+        app:tint="@color/brand_color" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_submit_bid_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:gravity="center"
+        android:text="@string/msg_submit_bid_note"
+        android:textColor="@color/text_color_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_bid_auction_amount" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cancel_submit_bid"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin_half"
+        android:text="@string/action_cancel"
+        app:cornerRadius="@dimen/corner_radius"
+        app:layout_constraintEnd_toStartOf="@id/btn_confirm_submit_bid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_submit_bid_note" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_confirm_submit_bid"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginStart="@dimen/common_margin_half"
+        android:layout_marginTop="@dimen/common_margin"
+        android:text="@string/action_submit"
+        app:cornerRadius="@dimen/corner_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_cancel_submit_bid"
+        app:layout_constraintTop_toBottomOf="@id/lbl_submit_bid_note" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

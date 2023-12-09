@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.account.settings.PermissionCheckActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_permission_illustrator"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:contentDescription="@null"
+        app:layout_constraintDimensionRatio="4:3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_undraw_navigation" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_permission_title"
+        style="@style/SFProBoldFontStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_2x"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_permission_illustrator"
+        tools:text="Enable Geolocation" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_permission_summary"
+        style="@style/SFProRegularFontStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin"
+        android:gravity="center"
+        android:textColor="@color/text_color_3"
+        app:layout_constraintTop_toBottomOf="@id/lbl_permission_title"
+        tools:maxLines="2"
+        tools:text="@tools:sample/lorem/random" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_request_permission"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin"
+        android:text="@string/action_allow"
+        app:layout_constraintBottom_toTopOf="@id/btn_ignore_permission"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_goneMarginBottom="@dimen/common_margin" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_ignore_permission"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginHorizontal="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginBottom="@dimen/common_margin"
+        android:text="@string/action_deny"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

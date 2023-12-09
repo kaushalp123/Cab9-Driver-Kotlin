@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/common_view_padding_half">
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/SFProSemiBoldFontStyle"
+        android:gravity="center"
+        android:id="@+id/lbl_quick_message"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/common_view_padding"
+        android:text="@string/label_quick_message"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/text_size_vlarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_add_message"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="?selectableItemBackground"
+        android:src="@drawable/ic_baseline_add_circle_24"
+        android:tint="@color/brand_color"
+        android:layout_marginStart="@dimen/common_view_padding_half"
+        app:layout_constraintStart_toEndOf="@+id/lbl_quick_message"
+        app:layout_constraintTop_toTopOf="@+id/lbl_quick_message"
+        app:layout_constraintBottom_toBottomOf="@+id/lbl_quick_message"/>
+
+    <View
+        android:background="@drawable/bottom_shadow_gradient"
+        android:id="@+id/divider_view"
+        android:layout_height="4dp"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_quick_message" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_quick_messages"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_view"
+        tools:listitem="@layout/item_rejection_reason" />
+
+    <ProgressBar
+        android:id="@+id/pBar_load_messages"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/list_quick_messages"
+        app:layout_constraintBottom_toBottomOf="@+id/list_quick_messages"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

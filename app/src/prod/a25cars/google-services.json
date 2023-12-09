@@ -1,0 +1,334 @@
+{
+  "project_info": {
+    "project_number": "922847943051",
+    "project_id": "prod-cab9",
+    "storage_bucket": "prod-cab9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922847943051:android:48876097edcd594de5b78e",
+        "android_client_info": {
+          "package_name": "com.a25cars.android.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7atU1jafSu71VzqilGtGyfeuOPk00DQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922847943051-0mja46j0gmlpgfhfgq0rihlqg2dc7f6k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cabbys.iOS.Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922847943051:android:b9b6833402522cb9e5b78e",
+        "android_client_info": {
+          "package_name": "com.blackswan.cab9.driversapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7atU1jafSu71VzqilGtGyfeuOPk00DQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922847943051-0mja46j0gmlpgfhfgq0rihlqg2dc7f6k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cabbys.iOS.Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922847943051:android:5b478568dcc58b20e5b78e",
+        "android_client_info": {
+          "package_name": "com.cab9.androidApp.Driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7atU1jafSu71VzqilGtGyfeuOPk00DQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922847943051-0mja46j0gmlpgfhfgq0rihlqg2dc7f6k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cabbys.iOS.Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922847943051:android:8c08a21787f469c2e5b78e",
+        "android_client_info": {
+          "package_name": "com.cabbys.android.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7atU1jafSu71VzqilGtGyfeuOPk00DQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922847943051-0mja46j0gmlpgfhfgq0rihlqg2dc7f6k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cabbys.iOS.Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922847943051:android:da81afe6a8a03f56e5b78e",
+        "android_client_info": {
+          "package_name": "com.chauffeursexecutive.android.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7atU1jafSu71VzqilGtGyfeuOPk00DQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922847943051-0mja46j0gmlpgfhfgq0rihlqg2dc7f6k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cabbys.iOS.Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922847943051:android:391a54ec7e99e23de5b78e",
+        "android_client_info": {
+          "package_name": "com.dynamolondon.android.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7atU1jafSu71VzqilGtGyfeuOPk00DQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922847943051-0mja46j0gmlpgfhfgq0rihlqg2dc7f6k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cabbys.iOS.Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922847943051:android:696cea08b1dd389fe5b78e",
+        "android_client_info": {
+          "package_name": "com.e9ine.cab9.driversapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7atU1jafSu71VzqilGtGyfeuOPk00DQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922847943051-0mja46j0gmlpgfhfgq0rihlqg2dc7f6k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cabbys.iOS.Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922847943051:android:854e58809703b5dfe5b78e",
+        "android_client_info": {
+          "package_name": "com.net.android.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7atU1jafSu71VzqilGtGyfeuOPk00DQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922847943051-0mja46j0gmlpgfhfgq0rihlqg2dc7f6k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cabbys.iOS.Driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922847943051:android:86b997365f500f54e5b78e",
+        "android_client_info": {
+          "package_name": "com.sherbetlondon.android.driverApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7atU1jafSu71VzqilGtGyfeuOPk00DQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922847943051-n1vup382gl3uubg7lg2d6o9b8hvp4etj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922847943051-0mja46j0gmlpgfhfgq0rihlqg2dc7f6k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cabbys.iOS.Driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

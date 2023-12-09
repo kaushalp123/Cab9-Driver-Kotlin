@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.cab9.driver.widgets.ReactiveLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/upcomingBookingListContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:emptyIcon="@drawable/ic_baseline_bookings"
+    app:emptySubtitle="@string/msg_no_history_bookings"
+    app:emptyTitle="@string/no_bookings">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/historyBookingList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:tag="@string/v_tag_complete"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_booking" />
+
+    <include layout="@layout/shimmer_booking_loading" />
+
+</com.cab9.driver.widgets.ReactiveLayout>

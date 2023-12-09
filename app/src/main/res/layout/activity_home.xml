@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context=".ui.home.HomeActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map_fragment_view"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/llAppContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/home_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:subtitleCentered="true"
+                    app:titleCentered="true"
+                    tools:title="@string/app_name" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/nav_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_graph" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                style="@style/Widget.MaterialComponents.BottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:backgroundTint="@color/system_ui_scim"
+                app:itemIconTint="@color/bottom_nav_icon_color_selector"
+                app:itemTextAppearanceActive="@style/TextAppearance.Cab9Driver.BottomNavigationView.Active"
+                app:itemTextAppearanceInactive="@style/TextAppearance.Cab9Driver.BottomNavigationView.Inactive"
+                app:itemTextColor="@color/bottom_nav_icon_color_selector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:menu="@menu/bottom_nav_menu" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_running_meter"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/brand_color"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="@dimen/common_view_padding"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0">
+
+            <TextView
+                android:id="@+id/lbl_pip_actual_cost"
+                style="@style/SFProBoldFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/label_empty"
+                android:textColor="@color/white"
+                android:textSize="38sp"
+                tools:text="$123.78" />
+
+            <TextView
+                style="@style/SFProBoldFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/label_meter_running"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/lbl_pip_actual_distance"
+                style="@style/SFProMediumFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                tools:text="Actual Distance: 0mi" />
+
+            <TextView
+                android:id="@+id/lbl_pip_waiting_cost"
+                style="@style/SFProBoldFontStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_large"
+                tools:text="Includes Waiting: $0.00" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/llInAppMessageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/brand_color_scim"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/common_margin"
+        android:paddingTop="@dimen/in_app_message_top_margin"
+        android:paddingBottom="@dimen/common_margin"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lblAppNotificationTitle"
+            style="@style/SFProSemiBoldFontStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_regular"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/lorem/random"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lblAppNotificationMsg"
+            style="@style/SFProRegularFontStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_regular"
+            tools:text="@tools:sample/lorem/random" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

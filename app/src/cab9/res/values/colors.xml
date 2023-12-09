@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Color generator-->
+    <!--http://mcg.mbitson.com/#!?mcgpalette0=%23455674-->
+
+    <color name="brand_color">#455674</color>
+    <color name="brand_color_scim">#E6455674</color>
+
+    <color name="brand_color_100">#C7CCD5</color>
+    <color name="brand_color_200">#A2ABBA</color>
+    <color name="brand_color_300">#7D899E</color>
+    <color name="brand_color_400">#616F89</color>
+    <color name="brand_color_500">#455674</color>
+    <color name="brand_color_600">#3E4F6C</color>
+    <color name="brand_color_700">#364561</color>
+    <color name="brand_color_800">#2E3C57</color>
+    <color name="brand_color_900">#1F2B44</color>
+
+</resources>

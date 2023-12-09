@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textview.MaterialTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:background="@drawable/bg_selector_job_pool_date"
+    android:fontFamily="@font/sf_pro_display_regular"
+    android:gravity="center"
+    android:textColor="@color/text_color_job_pool_date"
+    android:textSize="@dimen/text_size_medium"
+    tools:text="23\nWed" />
+

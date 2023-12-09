@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="@string/v_tag_loading"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        android:orientation="vertical">
+
+        <include layout="@layout/item_chat_shimmer" />
+
+        <include
+            layout="@layout/item_chat_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_view_padding" />
+
+        <include
+            layout="@layout/item_chat_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_view_padding" />
+
+        <include
+            layout="@layout/item_chat_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_view_padding" />
+
+        <include
+            layout="@layout/item_chat_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_view_padding" />
+
+        <include
+            layout="@layout/item_chat_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_view_padding" />
+
+        <include
+            layout="@layout/item_chat_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_view_padding" />
+
+        <include
+            layout="@layout/item_chat_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_view_padding" />
+
+    </LinearLayout>
+
+</com.facebook.shimmer.ShimmerFrameLayout>

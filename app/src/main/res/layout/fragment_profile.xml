@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.cab9.driver.ui.account.profile.ProfileScreenClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.cab9.driver.ui.account.profile.ProfileViewModel" />
+
+    </data>
+
+    <com.cab9.driver.widgets.ReactiveLayout
+        android:id="@+id/rl_profile"
+        state="@{viewModel.userProfileOutcome}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="@string/v_tag_complete">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_avatar_profile"
+                circularAvatarUrl="@{viewModel.avatarUrl}"
+                displayName="@{viewModel.displayName}"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size"
+                android:layout_marginTop="@dimen/common_margin"
+                android:layout_marginEnd="@dimen/common_margin"
+                android:background="?selectableItemBackground"
+                android:elevation="@dimen/common_elevation"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_circular_avatar_placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_margin"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="@id/img_avatar_profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/img_avatar_profile">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_display_semibold"
+                    android:text="@{viewModel.displayName}"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/text_size_xlarge"
+                    tools:text="@tools:sample/full_names" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_display_regular"
+                    android:text="@{viewModel.callSign}"
+                    android:textColor="@color/text_color_2"
+                    android:textSize="@dimen/text_size_regular"
+                    tools:text="@tools:sample/lorem" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lbl_profile_info_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_margin"
+                android:layout_marginTop="@dimen/common_margin_2x"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/label_information"
+                android:textColor="@color/text_color_2"
+                android:textSize="@dimen/text_size_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_avatar_profile" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardStyle.Cab9Driver.Filled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/common_margin"
+                android:layout_marginTop="@dimen/common_margin_half"
+                app:layout_constraintTop_toBottomOf="@id/lbl_profile_info_header">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/vertical_divider"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/bg_tint_color_3"
+                        android:foreground="?selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:onClick="@{()->listener.showPersonalInfoScreen()}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/common_margin">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/menu_item_icon_size_profile"
+                            android:layout_height="@dimen/menu_item_icon_size_profile"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_profile_circle"
+                            app:tint="@color/icon_tint_common" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/common_margin"
+                            android:layout_weight="1"
+                            android:text="@string/title_personal_info"
+                            android:textAppearance="@style/SFProMediumFontStyle"
+                            android:textColor="@color/text_color_1"
+                            android:textSize="@dimen/text_size_vlarge" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_arrow_forward"
+                            app:tint="@color/icon_tint_common" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/bg_tint_color_3"
+                        android:foreground="?selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:onClick="@{()->listener.showAccountInfoScreen()}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/common_margin">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/menu_item_icon_size_profile"
+                            android:layout_height="@dimen/menu_item_icon_size_profile"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_bank"
+                            app:tint="@color/icon_tint_common" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/common_margin"
+                            android:layout_weight="1"
+                            android:text="@string/label_account_info"
+                            android:textAppearance="@style/SFProMediumFontStyle"
+                            android:textColor="@color/text_color_1"
+                            android:textSize="@dimen/text_size_vlarge" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_arrow_forward"
+                            app:tint="@color/icon_tint_common" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/bg_tint_color_3"
+                        android:foreground="?selectableItemBackground"
+                        android:gravity="center_vertical"
+                        android:onClick="@{()->listener.showAboutScreen()}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/common_margin">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/menu_item_icon_size_profile"
+                            android:layout_height="@dimen/menu_item_icon_size_profile"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_about"
+                            app:tint="@color/icon_tint_common" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/common_margin"
+                            android:layout_weight="1"
+                            android:text="@string/label_about"
+                            android:textAppearance="@style/SFProMediumFontStyle"
+                            android:textColor="@color/text_color_1"
+                            android:textSize="@dimen/text_size_vlarge" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_arrow_forward"
+                            app:tint="@color/icon_tint_common" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="@string/v_tag_loading"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shm_img_avatar_profile"
+                    android:layout_width="@dimen/avatar_size"
+                    android:layout_height="@dimen/avatar_size"
+                    android:layout_marginTop="@dimen/common_margin"
+                    android:layout_marginEnd="@dimen/common_margin"
+                    android:background="@color/shimmer_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Cab9Driver.Circular" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/common_margin"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/shm_img_avatar_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/shm_img_avatar_profile">
+
+                    <View
+                        android:layout_width="180dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/bg_rounded_corner_border_4dp"
+                        android:backgroundTint="@color/shimmer_color" />
+
+                    <View
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/bg_rounded_corner_border_4dp"
+                        android:backgroundTint="@color/shimmer_color" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/common_margin"
+                    android:layout_marginTop="@dimen/common_margin_2x"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/shm_img_avatar_profile">
+
+                    <View
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/bg_rounded_corner_border_4dp"
+                        android:backgroundTint="@color/shimmer_color"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/shm_img_avatar_profile" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="@dimen/common_margin_half"
+                        android:background="@drawable/bg_rounded_corner_border_4dp"
+                        android:backgroundTint="@color/shimmer_color" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/bg_rounded_corner_border_4dp"
+                        android:backgroundTint="@color/shimmer_color" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/bg_rounded_corner_border_4dp"
+                        android:backgroundTint="@color/shimmer_color" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/bg_rounded_corner_border_4dp"
+                        android:backgroundTint="@color/shimmer_color" />
+
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </com.cab9.driver.widgets.ReactiveLayout>
+</layout>

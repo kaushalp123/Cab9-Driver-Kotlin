@@ -1,0 +1,55 @@
+package com.cab9.driver.data.source
+
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import com.cab9.driver.data.models.BidCategory
+import com.cab9.driver.data.models.JobBidDateRange
+import com.cab9.driver.data.models.JobPoolBid
+import com.cab9.driver.data.repos.JobPoolBidRepository
+import com.cab9.driver.utils.CAB9_STARTING_PAGE_INDEX
+
+class JobPoolBidPagingSource constructor(
+    private val jobPoolBidRepo: JobPoolBidRepository,
+    private val bidCategory: BidCategory,
+    private val dateRange: JobBidDateRange
+) : PagingSource<Int, JobPoolBid>() {
+
+    // The refresh key is used for subsequent refresh calls to PagingSource.load after the initial load
+    override fun getRefreshKey(state: PagingState<Int, JobPoolBid>): Int? {
+        // We need to get the previous key (or next key if previous is null) of the page
+        // that was closest to the most recently accessed index.
+        // Anchor position is the most recently accessed index
+        return state.anchorPosition?.let { anchorPosition ->
+            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
+                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
+        }
+    }
+
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, JobPoolBid> {
+        val position = params.key ?: CAB9_STARTING_PAGE_INDEX
+        return try {
+            val bids = getBids(params.loadSize, position)
+            val nextKey = if (bids.isEmpty()) null
+            else {
+                // initial load size = 3 * NETWORK_PAGE_SIZE
+                // ensure we're not requesting duplicating items, at the 2nd request
+                //position + (params.loadSize / NETWORK_PAGE_SIZE)
+                position + 1
+            }
+            LoadResult.Page(
+                data = bids,
+                prevKey = if (position == CAB9_STARTING_PAGE_INDEX) null else position - 1,
+                nextKey = nextKey
+            )
+        } catch (ex: Exception) {
+            LoadResult.Error(ex)
+        }
+    }
+
+    private suspend fun getBids(pageSize: Int, pageNo: Int) = when (bidCategory) {
+        BidCategory.ARCHIVED -> jobPoolBidRepo.getArchivedBids(dateRange, pageSize, pageNo)
+        BidCategory.ALL -> jobPoolBidRepo.getAllBids(dateRange, pageSize, pageNo)
+        BidCategory.SELECTED -> jobPoolBidRepo.getSubmittedBids(dateRange, pageSize, pageNo)
+        else -> throw UnsupportedOperationException("$bidCategory paging source is not supported!")
+    }
+}

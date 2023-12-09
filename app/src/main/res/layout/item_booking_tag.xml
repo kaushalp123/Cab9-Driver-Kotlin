@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginRight="@dimen/common_view_padding_half"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/lbl_tag_name"
+        style="@style/TextAppearance.Cab9Driver.BookingDetailInfo"
+        android:background="@drawable/bg_rounded_corner_4dp"
+        android:backgroundTint="@color/light_gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/common_view_padding_half"
+        tools:maxLines="1"
+        tools:text="@tools:sample/lorem/random" />
+
+</LinearLayout>

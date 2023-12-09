@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/common_margin"
+    android:orientation="vertical">
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_enable_biometric"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_enable_biometric_login"
+        android:textAppearance="@style/SFProSemiBoldFontStyle"
+        android:textSize="@dimen/text_size_regular" />
+
+    <com.google.android.material.textview.MaterialTextView
+        style="@style/SFProRegularFontStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/msg_enable_biometric_login"
+        android:textColor="@color/text_color_3" />
+
+</LinearLayout>

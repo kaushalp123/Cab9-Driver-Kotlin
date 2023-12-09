@@ -1,0 +1,807 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
+
+    id 'com.google.firebase.crashlytics'
+}
+
+def versionMajor = 7
+def versionMinor = 2
+def versionPatch = 5
+def versionBuild = 0
+
+
+android {
+    namespace 'com.cab9.driver'
+    compileSdk compileTargetSdkLevel
+
+//    def versionBuild = 0
+//    def versionPropsFile = file('version.properties')
+//    if (versionPropsFile.canRead()) {
+//        Properties versionProps = new Properties()
+//        versionProps.load(new FileInputStream(versionPropsFile))
+//        versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
+//        versionProps['VERSION_BUILD'] = versionBuild.toString()
+//        versionProps.store(versionPropsFile.newWriter(), null)
+//    }
+
+    defaultConfig {
+        applicationId "com.cab9.driver"
+        minSdk minimumSdkLevel
+        targetSdk compileTargetSdkLevel
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        resValue("string", "google_maps_key", project.properties['GENERIC_GOOGLE_MAPS_API_KEY'])
+
+        buildConfigField "String", "CHAT_HOSTNAME", "\"chat.cab9.app\""
+        buildConfigField "String", "DASHBOARD_LINK", "\"https://chat.cab9.app/driver-dashboard/index.html\""
+        buildConfigField "String", "DIRECTION_BASE_URL", "\"http://directions.cab9.app/route?\""
+        buildConfigField "String", "GOOGLE_API", "\"https://maps.googleapis.com/\""
+        buildConfigField "String", "SUMUP_BASE_URL", "\"https://api.sumup.com/\""
+    }
+
+    buildTypes {
+        release {
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            minifyEnabled true
+            // Enables resource shrinking, which is performed by the
+            // Android Gradle plugin.
+            shrinkResources true
+            // Includes the default ProGuard rules files that are packaged with
+            // the Android Gradle plugin. To learn more, go to the section about
+            // R8 configuration files.
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    def strCurrentDate = new Date().format('yyyy-MM-dd-HH-mm')
+    // Custom name for generated apk
+    applicationVariants.configureEach { variant ->
+        variant.outputs.each { output ->
+            output.outputFileName = "${variant.getFlavorName()}_${variant.buildType.name}_v${versionCode}_${versionName}_${strCurrentDate}.apk"
+        }
+    }
+
+    flavorDimensions = ["environment", "brand"]
+
+    productFlavors {
+        create("dev") {
+            dimension = "environment"
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+
+            buildConfigField "String", "BASE_CAB9_URL", "\"https://dev-aspnet-api.cab9.app/\""
+            buildConfigField "String", "BASE_NODE_URL", "\"https://dev-nodejs-api.cab9.app/\""
+            buildConfigField "String", "BASE_LOGIN_URL", "\"https://dev-aspnet-api.cab9.app/\""
+            buildConfigField "String", "CAB9_GO_WEB_URL", "\"https://dev-go.cab9.app\""
+            buildConfigField "String", "PAYMENT_WEB_URL", "\"https://dev-payments.cab9.app/register/\""
+            buildConfigField "String", "DASHBOARD_HOSTNAME", "\"dev-driver-portal.cab9.app\""
+            buildConfigField "String", "ONBOARDING_URL", "\"https://dev-driver-onboarding.cab9.app?company=\""
+        }
+
+        create("prod") {
+            dimension = "environment"
+
+            buildConfigField "String", "BASE_CAB9_URL", "\"https://api.cab9.co/\""
+            buildConfigField "String", "BASE_NODE_URL", "\"https://nodejs-api.cab9.app/\""
+            buildConfigField "String", "BASE_LOGIN_URL", "\"https://apim.cab9.app/\""
+            buildConfigField "String", "CAB9_GO_WEB_URL", "\"https://go.cab9.app\""
+            buildConfigField "String", "PAYMENT_WEB_URL", "\"https://payments.cab9.app/register/\""
+            buildConfigField "String", "DASHBOARD_HOSTNAME", "\"driver-portal.cab9.app\""
+            buildConfigField "String", "ONBOARDING_URL", "\"https://driver-onboarding.cab9.app?company=\""
+        }
+
+        create("a25cars") {
+            dimension = "brand"
+            applicationId "com.a25cars.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['A25CARS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://a25cars.co.uk/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://a25cars.co.uk/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://a25cars.co.uk/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("acg") {
+            dimension = "brand"
+            applicationId "com.acg.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['ACG_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.airportcars-gatwick.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.airportcars-gatwick.com/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.airportcars-gatwick.com/terms-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"ACG\""
+        }
+
+        create("afmcars") {
+            dimension = "brand"
+            applicationId "com.afmcars.cab9.driversapp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['AFMCARS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.afm-cars.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://docs.google.com/document/d/19Z0P1qNI8ik58FiuRrGRwiaeuUcuofSvKZja-uwW3K8/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.afm-cars.com/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("allports") {
+            dimension = "brand"
+            applicationId "com.allports.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['ALLPORTS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://allportsgrimsby.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://docs.google.com/document/d/1qt2acJorsLLf6sUkO5scM1W4C4t97Dv_SvnWi8HXUsg/edit\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://allportsgrimsby.com/faqs/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("alphacars") {
+            dimension = "brand"
+            applicationId "com.alphacarsbarnet.androidv1.Driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['ALPHA_CARS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.alphacarsbarnet.co.uk/about-us.html\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.alphacarsbarnet.co.uk/privacy-policy.html\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.alphacarsbarnet.co.uk/terms-and-conditions.html\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("bcc") {
+            dimension = "brand"
+            applicationId "com.bcc.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['BCC_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://brightoncitychauffeur.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://brightoncitychauffeur.com/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://brightoncitychauffeur.com/general-terms-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"bcc\""
+        }
+
+        create("blackwhite") {
+            dimension = "brand"
+            applicationId "com.braithwaites.android.driverapp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['BLACKWHITE_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.braithwaiteschauffeurs.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.braithwaiteschauffeurs.com/cookies-privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.braithwaiteschauffeurs.com/terms-service/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("blueline") {
+            dimension = "brand"
+            applicationId "com.blueline.android.appdriver"
+            versionCode versionMajor * 100000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+
+            buildConfigField "String", "TENANT_ID", project.properties['BLUELINE_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://bluelinetaxis.com/about-us\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://docs.google.com/document/d/1sfY0VZMKf-V8b7KJq9w1E0sWr95l73ZyFcrj3i3HLkg/edit\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://bluelinetaxis.com/blueline-t&c.pdf\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"BLG\""
+        }
+
+        create("bookevo") {
+            dimension = "brand"
+            applicationId "com.bookevo.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['BOOK_EVO_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.bookevo.co.uk/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.bookevo.co.uk/privacy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.bookevo.co.uk/terms/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"EVO\""
+        }
+
+        create("cab9") {
+            dimension = "brand"
+            applicationId "com.cab9.androidApp.Driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['CAB9_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://cab9.app/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://cab9.app/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://cab9.app/cookie-policy\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("cabbys") {
+            dimension = "brand"
+            applicationId "com.cabbys.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['CABBYS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.cabbys.co.uk/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.cabbys.co.uk/wpautoterms/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.cabbys.co.uk/wpautoterms/terms-and-conditions\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("cabtime") {
+            dimension = "brand"
+            applicationId "com.cabtime.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['CABTIME_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.cab-time.co.uk/#About\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.cab-time.co.uk/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.cab-time.co.uk/terms\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("cbc") {
+            dimension = "brand"
+            applicationId "com.chauffeuredbycar.androidApp.driverapp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['CBC_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://chauffeuredbycar.co.uk/about-us/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://chauffeuredbycar.co.uk/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://chauffeuredbycar.co.uk/terms-and-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("chads") {
+            dimension = "brand"
+            applicationId "com.chads.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['CHADS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://bluelinetaxis.com/about-us\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.chadscars-derby.co.uk/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.chadscars-derby.co.uk/privacy-policy/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"CHA\""
+        }
+
+        create("chauffeurexchange") {
+            dimension = "brand"
+            applicationId "com.chauffeurexchange.android.driversapp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['CX_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.chauffeurexchange.co.uk/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.chauffeurexchange.co.uk/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.chauffeurexchange.co.uk/terms-and-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("chauffeurexecutive") {
+            dimension = "brand"
+            applicationId "com.chauffeursexecutive.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['CHAUFFEUR_EXEC_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.chauffeursexecutive.co.uk/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://docs.google.com/document/d/14NmxPYsA8oeuXMGOzN4j5vA0gAZgO2Aeg7eXho7hrNc/edit\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.chauffeursexecutive.co.uk/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("corbystarcars") {
+            dimension = "brand"
+            applicationId "com.corbystarcars.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['CORBY_STARCARS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.corbystarcars.co.uk/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.corbystarcars.co.uk/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.corbystarcars.co.uk/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("ecowheel") {
+            dimension = "brand"
+            applicationId "com.ecowheel.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['ECO_WHEELS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://ecowheelride.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://ecowheelride.com/faq/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://ecowheelride.com/faq/terms-and-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("ecph") {
+            dimension = "brand"
+            applicationId "com.ecph.android.driverApp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['ECPH_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://wlph.co.uk/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://wlph.co.uk/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://wlph.co.uk/privacy-policy/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"ecp\""
+        }
+
+        create("excel") {
+            dimension = "brand"
+            applicationId "com.e9ine.cab9.driversapp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['EXCEL_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.excelexec.co.uk\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.excelexec.co.uk/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.excelexec.co.uk/includes/files/terms-and-condition.pdf\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"EXC\""
+        }
+
+        create("glh") {
+            dimension = "brand"
+            applicationId "com.glh.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['GLH_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://glh.co.uk/about/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://glh.co.uk/wp-content/uploads/2020/01/GLH-P24-Privacy-Policy-Customers-DIGITAL-Jan-2020.pdf\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://glh.co.uk/wp-content/uploads/2023/02/L7-GLH-Terms-of-Business-280223.pdf\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"glh\""
+        }
+
+        create("herts") {
+            dimension = "brand"
+            applicationId "com.hertsexecutive.androidApp.driverapp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['HERTS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://hertsexec.co.uk/about/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://hertsexec.co.uk/cookie-privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://hertsexec.co.uk/terms-and-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"Her\""
+        }
+
+        create("ichauffeur") {
+            dimension = "brand"
+            applicationId "com.ichauffeur.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['ICHAUFFEUR_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.ichauffeur.co.uk/about/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.ichauffeur.co.uk/privacy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.ichauffeur.co.uk/terms/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"ICH\""
+        }
+
+        create("jaf") {
+            dimension = "brand"
+            applicationId "com.jafexecutive.android.driverApp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['JAF_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://jafexecutivetravels.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://jafexecutivetravels.com/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://jafexecutivetravels.com/terms\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("londonchauffeurs247") {
+            dimension = "brand"
+            applicationId "com.londonchauffeurs.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['247_LONDON_CHAUFFEURS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://247chauffeurs.london/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://247chauffeurs.london/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://policies.google.com/terms\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"2CL\""
+        }
+
+        create("lynk") {
+            dimension = "brand"
+            applicationId "com.lynk.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['LYNK_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.lynk.ie/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.lynk.ie/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.lynk.ie/terms-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"LKT\""
+        }
+
+        create("net") {
+            dimension = "brand"
+            applicationId "com.net.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['NET_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://nationalexecutivetransfers.co.uk/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://docs.google.com/document/d/1ipw5yB0y2nu8Y8av_FE7CO6mm439XsKlKHwoW-fpLTM/edit?usp=sharing\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://nationalexecutivetransfers.co.uk/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("onecall") {
+            dimension = "brand"
+            applicationId "com.onecall.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['ONECALL_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://onecalltaxis.com\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://onecalltaxis.com/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://onecalltaxis.com\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"OCT\""
+        }
+
+        create("peterborough") {
+            dimension = "brand"
+            applicationId "com.peterborough.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['PETERBOROUGH_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.peterboroughcars.com\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.peterboroughcars.com/terms-and-conditions\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.peterboroughcars.com/terms-and-conditions\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"PTB\""
+        }
+
+        create("radiotaxis") {
+            dimension = "brand"
+            applicationId "com.radiotaxis.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['RADIO_TAXIS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://radiotaxisonline.co.uk/about-us/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://radiotaxisonline.co.uk/privacy-notice/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://radiotaxisonline.co.uk/privacy-notice/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"RAD\""
+        }
+
+        create("ride") {
+            dimension = "brand"
+            applicationId "com.deltataxis.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['RIDE_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://ride-taxis.co.uk/about-us/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://ride-taxis.co.uk/privacy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://ride-taxis.co.uk/t&c\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"dlt\""
+        }
+
+        create("ridesmiths") {
+            dimension = "brand"
+            applicationId "com.ridesmiths.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['RIDESMITHS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.ridesmiths.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.ridesmiths.com/privacy-notice.html\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.ridesmiths.com/terms-and-conditions.html\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"rsl\""
+        }
+
+        create("rtravel") {
+            dimension = "brand"
+            applicationId "com.rtravel.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['RTRAVEL_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.rtravel.uk/#aboutus\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.rtravel.uk/privacypolicy.html\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.rtravel.uk/termsconditions.html\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"RTL\""
+        }
+
+        create("scs") {
+            dimension = "brand"
+            applicationId "com.scschauffeur.cab9.driversapp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['SCS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://cheshirechauffeur.co.uk/about-us/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://docs.google.com/document/d/1Veax_GvaWFgfwfYaAJsOk312rxyA73_p66qajWOGGpM/edit\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://cheshirechauffeur.co.uk/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("shadowcarriage") {
+            dimension = "brand"
+            applicationId "com.shadowcarriage.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['SHADOW_CARRIAGE_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://shadowcarriage.co.uk/about-us/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://shadowcarriage.co.uk/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://shadowcarriage.co.uk/terms-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("sherbet") {
+            dimension = "brand"
+            applicationId "com.sherbetlondon.android.driverApp"
+
+            buildConfigField "String", "TENANT_ID", project.properties['SHERBET_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://sherbetbookings.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://sherbetlondon.com/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://sherbetlondon.com/ride-sherbet-london-terms-and-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\"" // 53ef1205-4447-ee11-9937-002248c5c3a5
+        }
+
+        create("shieldexec") {
+            dimension = "brand"
+            applicationId "com.shieldexec.androidApp.Driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['SHIELD_EXEC_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.shieldexecutive.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://secure.toolkitfiles.co.uk/clients/35141/sitedata/files/PrivacyPolicy.pdf\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.shieldexecutive.com/services\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("skyline") {
+            dimension = "brand"
+            applicationId "com.skyline.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['SKYLINE_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.skylinetaxis.co.uk/about-us/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.skylinetaxis.co.uk/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.skylinetaxis.co.uk/terms-and-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"SKY\""
+        }
+
+        create("starcars") {
+            dimension = "brand"
+            applicationId "com.starcars.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['STARCARS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://starcarsbirmingham.com/about/the-star-history/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://starcarsbirmingham.com/further-information/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://starcarsbirmingham.com/further-information/terms-and-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"STR\""
+        }
+
+        create("taxis247") {
+            dimension = "brand"
+            applicationId "com.taxis247.android.driver"
+            versionCode versionMajor * 100000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+
+            buildConfigField "String", "TENANT_ID", project.properties['247_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.247.uk.com/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.247.uk.com/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.247.uk.com/terms-and-conditions\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"247\""
+        }
+
+        create("taxis51") {
+            dimension = "brand"
+            applicationId "com.taxis51.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['51_TAXIS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://51taxis.co.uk/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://51taxis.co.uk/privacy.html\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://51taxis.co.uk/privacy.html\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"FOT\""
+        }
+
+        create("travelserve") {
+            dimension = "brand"
+            applicationId "com.travelserve.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['TRAVEL_SERVE_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://travelserve.net/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://travelserve.net/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://travelserve.net/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("umbrella") {
+            dimension = "brand"
+            applicationId "com.umbrella.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['UMBRELLA_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.umbrellatransfers.com/what-we-do/\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.umbrellatransfers.com/privacy-policy/\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.umbrellatransfers.com/terms-and-conditions/\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"\""
+        }
+
+        create("villagecars") {
+            dimension = "brand"
+            applicationId "com.villagecars.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['VILLAGE_CARS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://villagecarskent.co.uk/about-us\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://villagecarskent.co.uk/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://villagecarskent.co.uk/terms-conditions\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"VCK\""
+        }
+
+        create("wellmencars") {
+            dimension = "brand"
+            applicationId "com.wellmencars.android.driver"
+
+            buildConfigField "String", "TENANT_ID", project.properties['WELLMENCARS_TENANT_ID']
+            buildConfigField "String", "ABOUT_URL", "\"https://www.wellmancars.co.uk/about\""
+            buildConfigField "String", "PRIVACY_POLICY_URL", "\"https://www.wellmancars.co.uk/privacy-policy\""
+            buildConfigField "String", "TERMS_CONDITIONS_URL", "\"https://www.wellmancars.co.uk/_files/ugd/daee06_1352620e144a47e39cb211d0b0be4768.pdf\""
+
+            buildConfigField "String", "COMPANY_CODE", "\"WMC\""
+        }
+    }
+
+    variantFilter { variant ->
+        def names = variant.flavors*.name
+        // To check for a certain build type, use variant.buildType.name == "<buildType>"
+        if (names.contains("dev") && !names.contains("cab9")) {
+            // Gradle ignores any variants that satisfy the conditions above.
+            setIgnore(true)
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+
+    // SumUp: For Android SDK below 26, it is required to enable desugaring for Java 8+ API compatibility.
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+    }
+}
+
+dependencies {
+
+    def coroutine_version = '1.7.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutine_version"
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.security:security-crypto:1.0.0'
+    implementation 'androidx.biometric:biometric:1.1.0'
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'com.google.android.play:app-update-ktx:2.1.0'
+
+    //implementation 'com.google.android.material:material:1.8.0-beta01'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.webkit:webkit:1.8.0'
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9'
+    implementation 'com.github.florent37:singledateandtimepicker:2.2.7'
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    def lifecycle_version = '2.6.2'
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    implementation 'androidx.fragment:fragment-ktx:1.6.1'
+    implementation 'androidx.activity:activity-ktx:1.8.0'
+
+    implementation 'com.google.maps.android:maps-ktx:3.4.0'
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+    //implementation 'com.google.android.gms:play-services-location:21.0.1'
+    // Sumup crash support
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
+    implementation 'com.google.maps.android:android-maps-utils:3.4.0'
+
+    implementation 'androidx.paging:paging-runtime-ktx:3.2.1'
+    implementation "androidx.work:work-runtime-ktx:2.8.1"
+    implementation('io.coil-kt:coil:2.4.0')
+
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.4.6'
+    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
+
+    implementation platform('com.google.firebase:firebase-bom:32.1.0')
+    // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-config-ktx'
+
+    implementation(platform('com.squareup.okhttp3:okhttp-bom:5.0.0-alpha.11'))
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
+    def retrofit_version = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+
+    def moshi_version = '1.15.0'
+    implementation "com.squareup.moshi:moshi:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    def hilt_jetpack_version = '1.0.0'
+    implementation "androidx.hilt:hilt-navigation-fragment:$hilt_jetpack_version"
+    implementation "androidx.hilt:hilt-work:$hilt_jetpack_version"
+    kapt "androidx.hilt:hilt-compiler:$hilt_jetpack_version"
+
+    implementation('io.socket:socket.io-client:2.1.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+
+    // Room components
+    implementation "androidx.room:room-ktx:2.4.0"
+    kapt "androidx.room:room-compiler:2.4.0"
+
+    implementation 'com.sumup:merchant-sdk:4.1.1'
+    implementation 'com.airbnb.android:lottie:6.0.1'
+
+    // Room components
+    implementation "androidx.room:room-runtime:2.6.1"
+    implementation "androidx.room:room-ktx:2.6.1"
+    implementation "androidx.room:room-paging:2.6.1"
+    kapt "androidx.room:room-compiler:2.6.1"
+
+    // SumUp: For Android SDK below 26, it is required to enable desugaring for Java 8+ API compatibility.
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:1.1.5"
+
+    // debugImplementation because LeakCanary should only run in debug builds.
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.11'
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'com.google.truth:truth:1.1.4'
+    testImplementation 'io.mockk:mockk:1.13.5'
+
+    //testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version") {
+        // https://github.com/Kotlin/kotlinx.coroutines/tree/master/kotlinx-coroutines-debug#debug-agent-and-android
+        exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
+    }
+
+    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'io.mockk:mockk-android:1.13.5'
+}
